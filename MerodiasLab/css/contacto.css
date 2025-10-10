@@ -1,0 +1,356 @@
+/* ===== HERO CONTACTO (FIX) ===== */
+.p-contact__hero {
+  --hero-h: clamp(540px, 95vh, 860px);
+  --header-offset: 72px;
+
+  position: relative;
+  isolation: isolate;                 /* asegura stacking context */
+  display: grid;
+  place-items: center;
+
+  /* altura robusta en desktop y móviles */
+  min-height: 100vh;
+  min-height: 100svh;
+
+  /* compensa header fijo en desktop */
+  margin-top: calc(-1 * var(--header-offset));
+  padding-top: calc(var(--header-offset) + 2rem);
+
+  margin-block-end: var(--section-gap);
+  background-color: #125aac;         /* fallback bajo la imagen */
+}
+
+.p-contact__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: center 10% / cover no-repeat url("/MerodiasLab/assets/contacto.jpg");
+  transform: translateZ(0);           
+}
+
+.p-contact__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(18,90,172,.90), rgba(18,116,172,.70));
+}
+
+/* Contenido centrado */
+.p-contact__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+
+  padding: clamp(2rem, 4vw, 4rem) 1rem clamp(2rem, 5vw, 5rem);
+}
+
+.p-contact__content {
+  text-align: center;
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+.p-contact__title {
+  font-size: clamp(2.6rem, 4vw + .6rem, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  margin-bottom: .8rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.18);
+  text-wrap: balance;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-contact__lead {
+  color: rgba(255,255,255,.92);
+  max-width: 60ch;
+  margin: 0 auto 1.75rem;
+  font-size: 1.425rem;
+  line-height: 1.65;
+  text-align-last: center;
+}
+.p-contact__lead strong { color: #fff; }
+
+.p-contact__cta {
+  display: flex;
+  gap: .9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.p-contact__cta .c-btn.c-btn--ghost {
+  --btn-color: #fff;
+  --btn-bg: rgba(255,255,255,.14);
+  --btn-border: rgba(255,255,255,.38);
+  color: var(--btn-color);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  backdrop-filter: blur(2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .p-contact__hero {
+    min-height: auto;                 /* que crezca por contenido */
+    margin-top: 0;                    /* evita solape con el header en móvil */
+    padding-top: var(--header-offset);
+  }
+  .p-contact__hero::before { background-position: center; }
+  .p-contact__container {
+    padding: clamp(1.5rem, 4vw, 3rem) 1rem clamp(1.5rem, 5vw, 4rem);
+  }
+  .p-contact__title { max-width: 26ch; }
+}
+
+/* 2) CONTENEDORES DE SECCIÓN */
+.section__container.contact__form,
+.section__container.contact__visit {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad-x);
+  padding-block: clamp(3rem, 5vw, 5rem);
+}
+
+
+/* 3) PALETA (CONTACTO · FORM) */
+.contact__form--blue{
+  --bg1:#0a4068; --bg2:#1a5c8f;
+  --ink:#ffffff; --ink-2:#d4e9f7;
+  --c1:#56d4f7;  --c1-2:#00d4ff;
+
+  /* fallbacks de marca */
+  --brand-700:#125aac; --brand-600:#1274ac; --brand-500:#2a8bcc;
+  --brand-400:#5fb7e1; --brand-100:#e9f5fc; --brand-50:#f6fbff;
+
+  --ink-base:#0f172a; --muted:#475569; --border:#e5e7eb;
+
+  --radius-xl:26px; --radius-lg:18px; --radius-md:14px;
+  --shadow:0 16px 40px rgba(2,6,23,.12);
+  --shadow-soft:0 8px 24px rgba(2,6,23,.08);
+}
+
+/* Tipografía base de la sección */
+.contact__form :where(p,li,label,small,span){ font-weight: 400; letter-spacing: normal; font-style: normal; }
+.contact__form :where(strong, b){ color: var(--brand-400); font-weight: 700; }
+
+
+/* 4) CARD DE FORMULARIO */
+.fx-card{
+  display:grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: clamp(1.75rem, 3vw, 2.25rem);
+  align-items: stretch;
+
+  background:#fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  border:1px solid rgba(2,6,23,.06);
+  overflow:hidden;
+}
+
+/* Banda izquierda (gradiente + contenido) */
+.fx-aside{
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--ink);
+  padding: clamp(1.8rem, 3vw, 2.4rem);
+
+  display:grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1rem; min-height: 100%;
+}
+.fx-title{
+  font-size: clamp(2rem, 1.2rem + 1.8vw, 2.6rem);
+  font-weight: 800; letter-spacing: -.02em; line-height: 1.05; margin: 0;
+}
+.fx-sub{
+  color: var(--ink-2);
+  font-size: clamp(1rem, .9rem + .5vw, 1.12rem);
+  line-height: 1.7; margin: 0;
+}
+
+/* Lista con bullet alineado */
+.fx-points{
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: .8rem; max-width: 52ch;
+}
+.fx-points--center{ justify-items: start; text-align: left; }
+.fx-points--center li{
+  display: flex; align-items: flex-start; gap: .6rem; padding: 0;
+  font-weight: 500; color: var(--ink);
+}
+.fx-points--center li::before{
+  content: "•"; flex: 0 0 1.1rem; text-align: center;
+  font-size: 1.35rem; line-height: 1; color: #fff; margin-top: .2em;
+}
+.fx-points .mark{
+  display: inline;
+  background: linear-gradient(transparent 58%, color-mix(in oklab, var(--c1), #fff 68%) 0);
+  padding: 0 .15em; border-radius: 4px; white-space: nowrap;
+}
+@media (max-width: 560px){ .fx-points .mark{ white-space: normal; } }
+
+.fx-note{ text-align: center; color: var(--ink-2); font-size: .98rem; line-height: 1.6; opacity: .95; }
+
+
+/*  5) FORMULARIO */
+.fx-formWrap{ padding: clamp(1.8rem, 3vw, 2.4rem); display:grid; align-content:center; }
+.fx-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+.fx-field{ display:grid; gap:.5rem; }
+.fx-field--full{ grid-column: 1 / -1; }
+
+.fx-label{ font-size:.92rem; font-weight:600; color: var(--brand-600); }
+
+.fx-input{
+  width:100%; padding: .95rem 1rem; font-size:1rem; color: var(--ink-base);
+  background: #fbfdff; border: 1px solid var(--border); border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color .18s, box-shadow .18s, background-color .18s, transform .18s;
+}
+.fx-input::placeholder{ color:#9aa4b2; }
+.fx-input:hover{ background:#fff; border-color: color-mix(in oklab, var(--brand-400), #fff 35%); }
+.fx-input:focus{
+  background:#fff; border-color: var(--brand-600);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand-600), #fff 82%);
+  transform: translateY(-1px);
+}
+.fx-textarea{ min-height: 130px; resize: vertical; }
+
+/* Acciones / botón */
+.fx-actions{ margin-top: 1.15rem; display:flex; justify-content:flex-end; gap:.75rem; }
+.fx-btn{
+  padding: 1rem 2rem; font-size: 1.05rem; font-weight: 600;
+  border-radius: 12px; transition: all .22s cubic-bezier(.4,0,.2,1); cursor: pointer;
+}
+.fx-btn--impact{
+  background: linear-gradient(135deg, var(--brand-600), var(--brand-500));
+  color: #fff; border: none; box-shadow: 0 10px 26px rgba(18, 90, 172, .25);
+}
+.fx-btn--impact:hover{ box-shadow: 0 14px 34px rgba(18, 90, 172, .35); transform: translateY(-3px); }
+.fx-btn--impact:active{ transform: translateY(-1px); }
+
+
+/* 6) CONTACTO · VISÍTANOS */
+.contact__visit--blue{
+  --bg1:#0a4068; --bg2:#1a5c8f;
+  --ink:#ffffff; --ink-2:#d4e9f7;
+  --c1:#56d4f7;  --c1-2:#00d4ff;
+}
+
+/* Card principal (2 columnas en desktop) */
+.contact__visit--blue .visit__card{
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--ink);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(2,6,23,.28);
+  padding: clamp(1.75rem, 3vw, 3rem);
+
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 3rem);
+
+  height: var(--visit-h, 600px);
+  align-items: stretch;
+}
+
+/* Col izquierda (datos) */
+.contact__visit--blue .visit__col{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start; justify-items: start; text-align: left;
+  gap: 1rem; min-height: 100%;
+}
+.contact__visit--blue .section__header{
+  color: var(--ink);
+  font-weight: 800; letter-spacing: -.01em;
+  margin: 0 0 clamp(1.25rem, 1.2vw + .75rem, 1.75rem);
+  font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.25rem); line-height: 1.1;
+}
+
+/* Lista (alineada al mapa en desktop) */
+.contact__visit--blue .visit__list{
+  margin: 0; padding: 0; list-style: none;
+  display: grid; gap: 1.15rem; justify-items: start;
+  align-self: center; transform: translateY(-60px);
+}
+.contact__visit--blue .visit__list li{
+  display: grid; grid-template-columns: 44px 1fr; column-gap: .9rem; align-items: center;
+}
+.contact__visit--blue .visit__list i{
+  width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+  color: var(--c1); font-size: 1.2rem;
+}
+.contact__visit--blue .visit__list a{ color: var(--ink); }
+.contact__visit--blue .visit__list a:hover{ color: var(--c1); }
+.contact__visit--blue .visit__hint{ font-size: .9rem; color: var(--ink-2); margin-top: .25rem; }
+
+/* Col derecha (mapa) */
+.contact__visit--blue .visit__mapCol{ display: grid; align-content: center; justify-items: center; gap: .75rem; }
+.contact__visit--blue .visit__map{
+  width: 100%; height: 100%; min-height: 320px;
+  border: 2px solid var(--c1); border-radius: 20px; overflow: hidden; position: relative;
+  background: linear-gradient(135deg, #d9f2ff 0%, #bfe9ff 100%);
+  transition: box-shadow .3s, transform .3s, border-color .3s;
+}
+.contact__visit--blue .visit__map:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(86,212,247,.25);
+  border-color: var(--c1-2);
+}
+.contact__visit--blue .visit__map iframe{
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+
+/* Enlace “Abrir el mapa” */
+.contact__visit--blue .visit__mapHint{
+  display: inline-flex; align-items: center; gap: .45rem; justify-self: center;
+  text-align: center; font-size: 1.5rem;
+}
+.contact__visit--blue .visit__mapHint:hover{ color: #00d4ff; text-decoration: underline; }
+
+
+/*  7) RESPONSIVE */
+
+/* Form: 2→1 columnas y botones full-width */
+@media (max-width: 720px){
+  .fx-card{ grid-template-columns: 1fr; }
+  .fx-grid{ grid-template-columns: 1fr; }
+  .fx-actions{ justify-content: stretch; }
+  .fx-btn{ width: 100%; }
+}
+
+/* Visítanos: 2→1 columnas y altura fluida */
+@media (max-width: 968px){
+  .contact__visit--blue .visit__card{
+    grid-template-columns: 1fr; gap: 2.25rem; height: auto;
+  }
+  .contact__visit--blue .visit__map{ min-height: 260px; height: auto; }
+  .contact__visit--blue .visit__list{ align-self: start; transform: none; }
+}
+
+/* Ajustes finos */
+@media (max-width: 560px){ .fx-points .mark{ white-space: normal; } }
+@media (max-width: 480px){ .contact__visit--blue .visit__map{ min-height: 220px; } }
+
+
+/*  8) ACCESIBILIDAD – reduce motion global para Contacto */
+@media (prefers-reduced-motion: reduce) {
+  .p-contact__hero *, .fx-card *, .contact__visit--blue * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

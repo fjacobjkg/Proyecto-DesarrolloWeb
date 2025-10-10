@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio — Laboratorio Merodias S.A.</title>
+
+    <!-- Iconos + Fuentes -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/inicio.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body class="p-inicio">
+    <!-- NAVBAR -->
+  <header class="c-navbar">
+    <nav class="c-navbar__inner" aria-label="Principal">
+      <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
+        <span class="brand-a">Merodias</span>
+        <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
+      </a>
+
+      <button class="c-navbar__toggle" aria-expanded="false" aria-controls="navMenu"
+              aria-label="Abrir menú" data-toggle>
+        <i class="ri-menu-line" aria-hidden="true"></i>
+      </button>
+
+      <ul id="navMenu" class="c-navbar__links" data-open="false" data-menu>
+        <li><a class="c-navbar__link" href="inicio.html" aria-current="page">Inicio</a></li>
+        <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
+        <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
+        <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="c-navbar__actions">
+        <button class="c-btn" data-open-login data-mode="register" style="--btn-bg:#2563eb">Ingresar</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+      <!-- HERO -->
+    <section class="hero">
+      <div class="hero__container">
+        <div class="hero__content">
+          <h1 class="hero__title">Laboratorio Clínico</h1>
+          <p class="hero__lead">
+            En <strong>Laboratorio Merodias S.A.</strong> combinamos tecnología de punta con un equipo experto para
+            brindarte diagnósticos precisos, rápidos y seguros.
+          </p>
+          <div class="hero__actions">
+            <a class="c-btn" href="servicios.html#verServicios" style="--btn-bg:#2563eb">Conocer nuestros servicios</a>
+            <a class="c-btn c-btn--ghost" href="contacto.html#formCita">Agendar mi cita</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- NOSOTROS -->
+    <section id="politica" class="about">
+      <div class="about__container">
+        <div class="about__image">
+          <img src="assets/inicioConoce.jpg" alt="Tecnología de laboratorio Merodias" />
+        </div>
+        <div class="about__content">
+          <h2 class="about__title">Comprometidos con tu bienestar</h2>
+          <p class="about__text">En Laboratorio Merodias S.A. unimos experiencia, tecnología de punta y atención personalizada para entregarte resultados en los que puedes confiar.</p>
+          <p class="about__text">Trabajamos bajo estrictos protocolos de calidad para garantizar la precisión de cada diagnóstico.</p>
+          <div class="about__features">
+            <div class="about__feature">
+              <i class="ri-shield-check-line"></i>
+              <span>Control de calidad certificado</span>
+            </div>
+            <div class="about__feature">
+              <i class="ri-microscope-line"></i>
+              <span>Tecnología de punta</span>
+            </div>
+            <div class="about__feature">
+              <i class="ri-team-line"></i>
+              <span>Personal especializado</span>
+            </div>
+          </div>
+          <div class="impact__actions">
+            <a class="c-btn c-btn--ghost" href="nosotros.html#historia">Conocer nuestra historia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- SERVICIOS -->
+    <section class="services">
+      <div class="services__container">
+        <h2 class="services__title">Nuestros servicios</h2>
+        <div class="services__grid">
+          <article class="service-card">
+            <div class="service-card__content">
+              <h3 class="service-card__title">Laboratorio clínico</h3>
+              <p class="service-card__text">Análisis completos de sangre, orina, heces y más con resultados rápidos y precisos.</p>
+              <a href="servicios.html" class="service-card__link">Conocer más →</a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-card__content">
+              <h3 class="service-card__title">Perfiles especiales</h3>
+              <p class="service-card__text">Estudios específicos para diabetes, tiroides y más condiciones.</p>
+              <a href="servicios.html#perfiles" class="service-card__link">Conocer más →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__content">
+              <h3 class="service-card__title">Resultados en línea</h3>
+              <p class="service-card__text">Accede a tus resultados de forma segura desde cualquier dispositivo.</p>
+              <a href="#" class="service-card__link">Conocer más →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+     <!-- FAQ -->
+    <section  id="faq" class="faq">
+      <div class="faq__container">
+        <div class="faq__header">
+          <h2 class="faq__title">Preguntas frecuentes</h2>
+          <p class="faq__subtitle">Resolvemos tus dudas sobre preparación de muestras y entrega de resultados.</p>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__question">¿Afecta tomar medicamentos antes de los exámenes?</summary>
+            <div class="faq__answer">
+              <p>No. Si tus medicamentos fueron indicados por tu médico, puedes tomarlos normalmente, salvo indicación contraria específica en tu orden.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">¿Cuánto tiempo tengo para llevar muestras de orina o heces?</summary>
+            <div class="faq__answer">
+              <p><strong>Heces:</strong> dentro de las 2 horas posteriores a la recolección.</p>
+              <p><strong>Orina:</strong> lo antes posible, idealmente en menos de 2 horas para evitar alteraciones.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">¿La hematología requiere ayuno?</summary>
+            <div class="faq__answer">
+              <p>No. La hematología puede realizarse a cualquier hora. Si se harán pruebas adicionales como perfil lipídico o glucosa, podríamos solicitar ayuno.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">¿Cómo recibo mis resultados?</summary>
+            <div class="faq__answer">
+              <p>Puedes retirarlos presencialmente, recibirlos por correo electrónico o WhatsApp (previa validación de identidad).</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">¿Puede otra persona recoger mis resultados?</summary>
+            <div class="faq__answer">
+              <p>Sí. Debes indicarlo en recepción y compartir la contraseña/folio entregado. Algunos resultados confidenciales solo se entregan al paciente.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">¿Qué formas de pago aceptan?</summary>
+            <div class="faq__answer">
+              <p>Efectivo, tarjeta de crédito/débito, Visalink, transferencia y depósito bancario.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+ 
+      <!-- IMPACT  -->
+    <section class="impact impact--tinted">
+      <div class="impact__container">
+        <header class="impact__intro">
+          <h2 class="impact__title">Diagnósticos precisos para tu tranquilidad</h2>
+          <p class="impact__desc">Más de 5 años entregando resultados confiables con tecnología de punta y atención humana.</p>
+        </header>
+
+        <ul class="impact__stats" role="list">
+          <li class="impact__stat">
+            <span class="impact__number">+3</span>
+            <span class="impact__label">Años de experiencia</span>
+          </li>
+          <li class="impact__stat">
+            <span class="impact__number">1K</span>
+            <span class="impact__label">Exámenes procesados</span>
+          </li>
+          <li class="impact__stat">
+            <span class="impact__number">+7</span>
+            <span class="impact__label">Profesionales</span>
+          </li>
+          <li class="impact__stat">
+            <span class="impact__number">1</span>
+            <span class="impact__label">Sedes disponibles</span>
+          </li>
+        </ul>
+
+        <div class="impact__cta">
+          <h3 class="impact__cta-title">Agenda tu cita hoy</h3>
+          <p class="impact__cta-text">Resultados confiables cuando los necesitas.</p>
+          <div class="impact__actions">
+            <a class="c-btn c-btn--ghost" href="contacto.html#formCita">Agendar ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+      <!-- FOOTER -->
+    <footer class="c-footer" role="contentinfo">
+      <div class="c-footer__inner">
+        <div class="c-footer__grid">
+          <div>
+            <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
+            <p class="c-footer__p">
+              En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos
+              <strong>confiables y oportunos</strong>. Cuidamos cada muestra con
+              trazabilidad y buenas prácticas, porque tu salud es primero.
+            </p>
+            <p class="c-footer__p">
+              La información de este sitio es de carácter informativo y <strong>no sustituye</strong>
+              la consulta médica. Ante cualquier duda, acude con tu médico tratante.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Empresa</h4>
+            <p class="c-footer__p"><a href="nosotros.html#historia">Quiénes somos</a></p>
+            <p class="c-footer__p"><a href="#politica">Política de calidad</a></p>
+            <p class="c-footer__p"><a href="nosotros.html#equipo">Nuestro equipo</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Soporte</h4>
+            <p class="c-footer__p"><a href="contacto.html#formCita">Contacto</a></p>
+            <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
+            <p class="c-footer__p"><a href="#faq">Preguntas frecuentes</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Síguenos</h4>
+            <div class="c-footer__socials" aria-label="Redes sociales">
+              <a href="https://instagram.com/"
+                aria-label="Instagram"
+                title="Instagram"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-instagram-line" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.facebook.com/"
+                aria-label="Facebook"
+                title="Facebook"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-facebook-fill" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://x.com/"
+                aria-label="X (Twitter)"
+                title="X (Twitter)"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-twitter-x-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-footer__bar">
+        <div class="c-footer__bar-inner">
+          <p>Copyright © 2025, Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

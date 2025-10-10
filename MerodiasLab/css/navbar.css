@@ -1,0 +1,169 @@
+/* =============================================
+   NAVBAR.CSS - Barra de navegación fija
+   ============================================= */
+
+/* Contenedor principal: fijo en la parte superior */
+.c-navbar {
+  --nav-h: var(--header-offset);
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Siempre visible sobre todo el contenido */
+  
+  height: var(--nav-h);
+  min-height: var(--nav-h);
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(15,23,42,.06);
+  box-shadow: 0 6px 18px rgba(2,6,23,.04);
+  
+  /* Fuerza un layer de composición independiente */
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+/* Layout interno: logo | links | botones */
+.c-navbar__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Logo/Marca */
+.c-navbar__brand {
+  --brand-dark: #0f172a;
+  --brand-a: #1e40af;
+  --brand-b: #2563eb;
+  
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .5rem .35rem;
+  font-size: 1.55rem;
+   line-height: 1;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.c-navbar__brand .brand-a {
+  color: var(--brand-a);
+}
+
+.c-navbar__brand .brand-b {
+  color: var(--brand-b);
+  margin-left: .15rem;
+}
+
+/* Lista de enlaces */
+.c-navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlace individual */
+.c-navbar__link {
+  --link: #1f2937;
+  --link-hover: #2563eb;
+  --link-bg-hover: #eaf2ff;
+  
+  display: inline-block;
+  line-height: 1;
+  font-size: 1.06rem;  
+  color: var(--link);
+  padding: .7rem 1rem; 
+  border-radius: 10px;
+  transition: color .15s, background .15s;
+}
+
+.c-navbar__link:hover,
+.c-navbar__link[aria-current="page"] {
+  color: var(--link-hover);
+  background: var(--link-bg-hover);
+}
+
+/* Contenedor de botones (Ingresar/Registrarse) */
+.c-navbar__actions {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+/* Botón hamburguesa (oculto en desktop) */
+.c-navbar__toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(37,99,235,.25);
+  border-radius: 10px;
+  padding: .75rem 1rem;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 1.4rem; 
+  line-height: 1;
+}
+
+
+
+/* Menú móvil: ya usa var(--header-offset), lo dejamos explícito */
+@media (max-width: 900px) {
+  .c-navbar__links {
+    top: calc(var(--header-offset) + 8px);
+  }
+}
+
+/* =============================================
+   RESPONSIVE - Mobile
+   ============================================= */
+
+@media (max-width: 900px) {
+  /* Muestra el botón hamburguesa */
+  .c-navbar__toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  /* Menú desplegable */
+  .c-navbar__links {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: calc(var(--header-offset) + 8px);
+    background: #fff;
+    border: 1px solid rgba(15,23,42,.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 28px rgba(2,6,23,.12);
+    padding: .5rem;
+    flex-direction: column;
+    gap: .25rem;
+    min-width: 220px;
+    z-index: 99999;
+  }
+  
+  /* Muestra el menú cuando está abierto */
+  .c-navbar__links[data-open="true"] {
+    display: flex;
+  }
+  
+  /* Ajustes de tamaño para móvil */
+  .c-navbar__brand {
+    font-size: 1.15rem;
+  }
+  
+  .c-navbar__link {
+    font-size: .98rem;
+    padding: .5rem .75rem;
+    width: 100%;
+  }
+  
+  .c-navbar__actions .c-btn {
+    padding: .55rem .9rem;
+    font-size: .97rem;
+  }
+}

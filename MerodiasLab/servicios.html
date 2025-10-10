@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios — Laboratorio Merodias S.A.</title>
+
+    <!-- Iconos + Fuentes -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS-->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/servicios.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body class="p-servicios">
+    <!-- NAVBAR -->
+  <header class="c-navbar" role="banner">
+    <nav class="c-navbar__inner" aria-label="Principal">
+      <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
+        <span class="brand-a">Merodias</span>
+        <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
+      </a>
+
+      <button class="c-navbar__toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú" data-toggle>
+        <i class="ri-menu-line" aria-hidden="true"></i>
+      </button>
+
+      <ul id="navMenu" class="c-navbar__links" data-open="false" data-menu>
+        <li><a class="c-navbar__link" href="inicio.html">Inicio</a></li>
+        <li><a class="c-navbar__link" href="servicios.html" aria-current="page">Servicios</a></li>
+        <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
+        <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="c-navbar__actions">
+        <button class="c-btn" data-open-login data-mode="register" style="--btn-bg:#2563eb">Ingresar</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+      <!-- HERO -->
+    <section id="servicios" class="p-servicios__hero">
+      <div class="p-servicios__container">
+        <div class="p-servicios__content">
+          <h1 class="p-servicios__title">Nuestros servicios</h1>
+          <p class="p-servicios__lead">
+            En <strong>Laboratorio Merodias S.A.</strong> cuidamos tu salud con exámenes de rutina,
+            perfiles especiales y pruebas preventivas.
+          </p>
+          <div class="p-servicios__cta">
+            <a class="c-btn" href="#verServicios" style="--btn-bg:#2563eb">Ver servicios</a>
+            <a class="c-btn c-btn--ghost" href="contacto.html#formCita">Agendar mi cita</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- NUESTRO EQUIPO PROFESIONAL-->
+    <section class="team-section" aria-labelledby="team-title">
+      <div class="l-container">
+        <div class="team" role="region">
+          <!-- Imagen circular del equipo -->
+          <div class="team__image">
+            <div class="team__circle">
+              <img 
+                src="./assets/imagen4.jpg" 
+                alt="Profesional de laboratorio procesando muestras" 
+                class="team__photo"
+              >
+            </div>
+          </div>
+
+          <!-- Contenido del equipo -->
+          <div id="serviciosEquipo" class="team__content">
+            <h1 id="team-title" class="team__title">Nuestro equipo profesional</h1>
+            
+            <p class="team__intro">
+              La combinación de <span class="team__highlight">conocimiento, experiencia y pasión</span> 
+              por el cuidado de la salud nos permite brindar un servicio excepcional en cada etapa del proceso.
+            </p>
+            
+            <p class="team__desc">
+              <strong>En Merodias Lab,</strong> contamos con un equipo altamente calificado y diverso 
+              de profesionales de la salud. Nuestro equipo incluye:
+            </p>
+            
+            <ul class="team__list">
+              <li>Técnicos en laboratorio con amplia experiencia en la manipulación y análisis de muestras.</li>
+              <li>Químicos biólogos que aportan su conocimiento especializado en la interpretación de resultados.</li>
+              <li>Flebotomistas expertos en la obtención de muestras, asegurando una experiencia cómoda y segura para nuestros pacientes.</li>
+            </ul>
+            
+            <div class="team__results">
+              <h2 class="team__subtitle">Resultados confiables</h2>
+              <p class="team__results-text">
+                Nos esforzamos constantemente por mantenernos a la vanguardia de los avances en la 
+                medicina diagnóstica. Desde la adopción de tecnologías innovadoras hasta la formación 
+                continua de nuestro equipo, invertimos en ofrecer resultados precisos y confiables.
+              </p>
+            </div>
+            
+            <div class="team__cta">
+              <h3 class="team__cta-title">Consulta nuestros horarios de atención</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS DESTACADOS -->
+    <section id="verServicios" class="services-featured" aria-labelledby="serviciosDestacados">
+      <div class="l-container">
+        <div class="services-featured__grid">
+          
+          <!-- Tarjeta 1: Exámenes de rutina -->
+          <article class="service-card">
+            <div class="service-card__icon">
+              <img src="assets/icons/rutina.png" alt="Exámenes de rutina" />
+            </div>
+            <h3 class="service-card__title">Exámenes de rutina</h3>
+            <ul class="service-card__list">
+              <li>Hematología completa</li>
+              <li>Heces completo</li>
+              <li>Orina completa</li>
+            </ul>
+            <div class="service-card__badge">No requieren ayuno</div>
+          </article>
+
+          <!-- Tarjeta 2: Perfil de lípidos -->
+          <article class="service-card">
+            <div class="service-card__icon">
+              <img src="assets/icons/lipidos.png" alt="Perfil de lípidos" />
+            </div>
+            <h3 class="service-card__title">Perfil de lípidos</h3>
+            <ul class="service-card__list">
+              <li>Glucosa pre-prandial</li>
+              <li>Ácido úrico</li>
+              <li>Colesterol total</li>
+              <li>Colesterol LDL</li>
+              <li>Colesterol HDL</li>
+              <li>Triglicéridos</li>
+            </ul>
+            <div class="service-card__badge">14 horas de ayuno</div>
+          </article>
+
+          <!-- Tarjeta 3: Panel diabético -->
+          <article class="service-card">
+            <div class="service-card__icon">
+              <img src="assets/icons/diabetes.png" alt="Panel diabético" />
+            </div>
+            <h3 class="service-card__title">Panel diabético</h3>
+            <ul class="service-card__list">
+              <li>Glucosa pre-prandial</li>
+              <li>Glucosa post-prandial</li>
+              <li>Hemoglobina glicosilada A1c</li>
+              <li>Orina completa</li>
+            </ul>
+            <div class="service-card__badge">8 horas de ayuno</div>
+          </article>
+
+          <!-- Tarjeta 4: Tarjeta de salud -->
+          <article class="service-card">
+            <div class="service-card__icon">
+              <img src="assets/icons/tarjeta.png" alt="Tarjeta de salud" />
+            </div>
+            <h3 class="service-card__title">Tarjeta de salud</h3>
+            <ul class="service-card__list">
+              <li>Heces completa</li>
+              <li>Orina completa</li>
+              <li>Cardiolina (VDRL)</li>
+              <li>Hepatitis A</li>
+            </ul>
+            <div class="service-card__badge">6 horas de ayuno</div>
+          </article>
+
+          <!-- Tarjeta 5: Cultivo de orina -->
+          <article class="service-card">
+            <div class="service-card__icon">
+              <img src="assets/icons/orina.png" alt="Cultivo de orina" />
+            </div>
+            <h3 class="service-card__title">Cultivo de orina (Urocultivo)</h3>
+            <ul class="service-card__list">
+              <li>Primera muestra del día (frasco estéril entregado en sitio).</li>
+              <li>No dejar la muestra en el frasco más de 2 horas.</li>
+              <li>Higiene personal previa a recolectar la muestra.</li>
+              <li>Resultados del cultivo en 48–72 horas.</li>
+            </ul>
+          </article>
+
+          <!-- Tarjeta 6: Cultivo de garganta -->
+          <article class="service-card">
+            <div class="service-card__icon">
+              <img src="assets/icons/garganta.png" alt="Cultivo de garganta" />
+            </div>
+            <h3 class="service-card__title">Cultivo de garganta (Orocultivo)</h3>
+            <ul class="service-card__list">
+              <li>No realizar higiene bucal el día del estudio.</li>
+              <li>No beber agua el día del estudio.</li>
+              <li>Presentarse en ayunas.</li>
+              <li>Resultados en 48–72 horas.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+    
+      <!-- FOOTER -->
+    <footer class="c-footer" role="contentinfo">
+      <div class="c-footer__inner">
+        <div class="c-footer__grid">
+          <div>
+            <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
+            <p class="c-footer__p">
+              En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos
+              <strong>confiables y oportunos</strong>. Cuidamos cada muestra con
+              trazabilidad y buenas prácticas, porque tu salud es primero.
+            </p>
+            <p class="c-footer__p">
+              La información de este sitio es de carácter informativo y <strong>no sustituye</strong>
+              la consulta médica. Ante cualquier duda, acude con tu médico tratante.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Empresa</h4>
+            <p class="c-footer__p"><a href="nosotros.html#historia">Quiénes somos</a></p>
+            <p class="c-footer__p"><a href="inicio.html#politica">Política de calidad</a></p>
+            <p class="c-footer__p"><a href="#serviciosEquipo">Nuestro equipo</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Soporte</h4>
+            <p class="c-footer__p"><a href="contacto.html#formCita">Contacto</a></p>
+            <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
+            <p class="c-footer__p"><a href="inicio.html#faq">Preguntas frecuentes</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Síguenos</h4>
+            <div class="c-footer__socials" aria-label="Redes sociales">
+              <a href="https://instagram.com/"
+                aria-label="Instagram"
+                title="Instagram"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-instagram-line" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.facebook.com/"
+                aria-label="Facebook"
+                title="Facebook"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-facebook-fill" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://x.com/"
+                aria-label="X (Twitter)"
+                title="X (Twitter)"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-twitter-x-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-footer__bar">
+        <div class="c-footer__bar-inner">
+          <p>Copyright © 2025, Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

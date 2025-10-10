@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosotros — Laboratorio Merodias S.A.</title>
+
+   <!-- Iconos + Fuentes -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-w..." crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/nosotros.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body class="p-nosotros">
+  <!-- NAVBAR  -->
+  <header class="c-navbar" role="banner">
+    <nav class="c-navbar__inner" aria-label="Principal">
+      <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
+        <span class="brand-a">Merodias</span>
+        <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
+      </a>
+
+      <button class="c-navbar__toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú" data-toggle>
+        <i class="ri-menu-line" aria-hidden="true"></i>
+      </button>
+
+      <ul id="navMenu" class="c-navbar__links" data-open="false" data-menu>
+        <li><a class="c-navbar__link" href="inicio.html">Inicio</a></li>
+        <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
+        <li><a class="c-navbar__link" href="nosotros.html" aria-current="page">Nosotros</a></li>
+        <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="c-navbar__actions">
+        <button class="c-btn" data-open-login data-mode="register" style="--btn-bg:#2563eb">Ingresar</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+     <!-- HERO -->
+    <section id="about" class="p-nosotros__hero">
+      <div class="p-nosotros__container">
+        <div class="p-nosotros__content">
+          <h1 class="p-nosotros__title">Conócenos mejor</h1>
+          <p class="p-nosotros__lead">
+            En <strong>Laboratorio Merodias S.A.</strong> ponemos la ciencia al servicio de tu salud.
+            Equipo experto, procesos certificados y atención humana.
+          </p>
+          <div class="p-nosotros__cta">
+            <a class="c-btn" href="#mvv" style="--btn-bg:#2563eb">Valores y Cultura</a>
+            <a class="c-btn c-btn--ghost" href="#historia">Nuestra historia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+     <!-- BLOQUE EQUIPO -->
+    <section id="equipo" class="services__teaser services__teaser--blue">
+      <div class="l-container">
+        <div class="team" role="region" aria-labelledby="team-title">
+        <div class="team__image">
+          <div class="team__circle">
+            <img src="./assets/imagen5.jpg" alt="Profesional de laboratorio procesando muestras" class="team__photo">
+          </div>
+        </div>
+
+        <div class="team__content">
+          <h1 id="team-title" class="team__title">Nuestro equipo profesional</h1>
+          <p class="team__intro">
+            La combinación de <span class="team__highlight">conocimiento, experiencia y pasión</span> por el cuidado de la salud nos permite brindar un servicio excepcional en cada etapa del proceso.
+          </p>
+          <p class="team__desc">
+            En Merodias Lab, contamos con un equipo altamente calificado y diverso de profesionales de la salud. Nuestro equipo incluye:
+          </p>
+          <ul class="team__list">
+            <li>Técnicos en laboratorio con amplia experiencia en la manipulación y análisis de muestras.</li>
+            <li>Químicos biólogos que aportan su conocimiento especializado en la interpretación de resultados.</li>
+            <li>Flebotomistas expertos en la obtención de muestras, asegurando una experiencia cómoda y segura para nuestros pacientes.</li>
+          </ul>
+          <div class="team__results">
+            <h2 class="team__subtitle">Resultados confiables</h2>
+            <p class="team__results-text">
+              Nos esforzamos constantemente por mantenernos a la vanguardia de los avances en la medicina diagnóstica. Desde la adopción de tecnologías innovadoras hasta la formación continua de nuestro equipo, invertimos en ofrecer resultados precisos y confiables.
+            </p>
+          </div>
+          <div class="team__cta">
+            <h3 class="team__cta-title">Consulta nuestros horarios de atención</h3>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>   
+
+      <!-- MVV -->
+    <section id="mvv" class="mvv" aria-labelledby="mvv-title">
+      <div class="mvv__container">
+        <h2 id="mvv-title" class="sr-only">Misión, Visión y Valores</h2>
+
+        <div class="mvv__grid">
+          <!-- Misión -->
+          <article class="mvv__card">
+            <!-- Usa imagen + <i>; el <i> se oculta por CSS si hay <img> -->
+            <div class="mvv__icon mvv__icon--img" aria-hidden="true">
+              <img src="assets/icons/flag.png" alt="">
+              <i class="fa-solid fa-flag"></i>
+            </div>
+            <h3 class="mvv__title">Misión</h3>
+            <p class="mvv__text">
+              Impulsar nuestras capacidades tecnológicas para ofrecer
+              <strong>análisis de laboratorio oportunos y de excelencia</strong>,
+              promoviendo el desarrollo profesional de nuestro equipo y contribuyendo
+              al bienestar de la población mediante resultados de calidad comprobada.
+            </p>
+          </article>
+
+          <!-- Visión -->
+          <article class="mvv__card">
+            <div class="mvv__icon mvv__icon--img" aria-hidden="true">
+              <img src="assets/icons/lightbulb.png" alt="">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <h3 class="mvv__title">Visión</h3>
+            <p class="mvv__text">
+              Mantenernos como centro de diagnóstico líder, combinando
+              <strong>calidad humana y profesional</strong> con tecnología avanzada
+              para generar plena confianza en cada resultado.
+            </p>
+          </article>
+
+          <!-- Valores -->
+          <article class="mvv__card">
+            <div class="mvv__icon mvv__icon--img" aria-hidden="true">
+              <img src="assets/icons/handshake.png" alt="">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <h3 class="mvv__title">Valores</h3>
+            <ul class="mvv__list">
+              <li>Servicio al cliente con <span class="highlight">resultados confiables</span>.</li>
+              <li>Desarrollo humano continuo y trabajo en equipo.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+       <!-- HISTORIA -->
+    <section id="historia" class="history" role="region" aria-labelledby="history-title">
+      <!-- Contenido -->
+      <div class="history__content">
+        <h2 id="history-title" class="history__title">Nuestra historia</h2>
+
+        <p class="history__intro">
+          Merodias Lab fue fundado en 1985 por un equipo médico comprometido con la excelencia.
+          Desde el inicio nos propusimos ofrecer
+          <span class="history__highlight">diagnósticos clínicos precisos y oportunos</span>,
+          respaldados por estándares de calidad de referencia en Guatemala.
+        </p>
+
+        <p class="history__desc">
+          Nuestro mayor activo es el talento humano. Un equipo multidisciplinario que combina experiencia
+          y vocación de servicio, impulsando la mejora continua y la adopción de
+          <span class="history__highlight">buenas prácticas</span> para mantenernos a la vanguardia.
+        </p>
+
+        <p class="history__desc">
+          Reafirmamos nuestra misión original: brindar
+          <span class="history__highlight">resultados confiables</span> y un acompañamiento ético
+          y cercano que impacten positivamente la salud y el bienestar de nuestros pacientes y de la comunidad.
+        </p>
+      
+      </div>
+
+      <!-- Imagen -->
+      <div class="history__image" aria-hidden="true">
+        <div class="history__circle">
+          <img src="./assets/historia.jpg" alt="" class="history__photo" />
+        </div>
+      </div>
+    </section>
+  
+  </main>
+   
+        <!-- FOOTER -->
+    <footer class="c-footer" role="contentinfo">
+      <div class="c-footer__inner">
+        <div class="c-footer__grid">
+          <div>
+            <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
+            <p class="c-footer__p">
+              En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos
+              <strong>confiables y oportunos</strong>. Cuidamos cada muestra con
+              trazabilidad y buenas prácticas, porque tu salud es primero.
+            </p>
+            <p class="c-footer__p">
+              La información de este sitio es de carácter informativo y <strong>no sustituye</strong>
+              la consulta médica. Ante cualquier duda, acude con tu médico tratante.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Empresa</h4>
+            <p class="c-footer__p"><a href="#historia">Quiénes somos</a></p>
+            <p class="c-footer__p"><a href="inicio.html#politica">Política de calidad</a></p>
+            <p class="c-footer__p"><a href="#equipo">Nuestro equipo</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Soporte</h4>
+            <p class="c-footer__p"><a href="contacto.html#formCita">Contacto</a></p>
+            <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
+            <p class="c-footer__p"><a href="inicio.html#faq">Preguntas frecuentes</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Síguenos</h4>
+            <div class="c-footer__socials" aria-label="Redes sociales">
+              <a href="https://instagram.com/"
+                aria-label="Instagram"
+                title="Instagram"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-instagram-line" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.facebook.com/"
+                aria-label="Facebook"
+                title="Facebook"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-facebook-fill" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://x.com/"
+                aria-label="X (Twitter)"
+                title="X (Twitter)"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-twitter-x-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-footer__bar">
+        <div class="c-footer__bar-inner">
+          <p>Copyright © 2025, Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+   
+  </body>
+</html>

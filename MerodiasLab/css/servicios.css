@@ -1,0 +1,365 @@
+/* ===== 1) HERO SERVICIOS ===== */
+.p-servicios__hero {
+  --hero-h: clamp(700px, 100vh, 1000px); /* Alto consistente con otras páginas */
+  --header-offset: 72px;
+
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  min-height: var(--hero-h);
+  padding-top: var(--header-offset);
+  margin-block-end: var(--section-gap);
+
+  background-color: #125aac; /* color de respaldo bajo la imagen */
+}
+
+/* Fondo con imagen + overlay */
+.p-servicios__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: center 10% / cover no-repeat url("/MerodiasLab/assets/servicios.jpg");
+}
+
+.p-servicios__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(to right, rgba(18,90,172,.90), rgba(18,116,172,.70));
+}
+
+/* Contenido centrado y acotado */
+.p-servicios__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+
+  padding: clamp(2rem, 4vw, 4rem) 1rem clamp(2rem, 5vw, 5rem);
+}
+
+.p-servicios__content {
+  text-align: center;
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+/* Titular/lead equilibrados para mejor lectura */
+.p-servicios__title {
+  font-size: clamp(2.6rem, 4vw + .6rem, 4rem);
+  font-weight: 800;
+  line-height: 1.08;          /* un toque más suelto */
+  letter-spacing: -.015em;    /* tracking menos agresivo */
+  margin-bottom: .8rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.18);
+  text-wrap: balance;         /* balancea líneas del título */
+  max-width: 20ch;            /* evita líneas larguísimas */
+}
+
+.p-servicios__lead {
+  color: rgba(255,255,255,.92);
+  max-width: 60ch;
+  margin-bottom: 1.75rem;
+  font-size: 1.425rem;
+  line-height: 1.65;
+  text-align-last: center;
+}
+.p-servicios__lead strong { color: #fff; }
+
+/* CTA agrupado (reutiliza .c-btn base de tu sistema) */
+.p-servicios__cta {
+  display: flex;
+  gap: .9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Botón ghost específico del hero */
+.p-servicios__cta .c-btn.c-btn--ghost {
+  --btn-color: #fff;
+  --btn-bg: rgba(255,255,255,.14);
+  --btn-border: rgba(255,255,255,.38);
+  color: var(--btn-color);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  backdrop-filter: blur(2px);
+}
+
+/* ===== HERO: Responsive ===== */
+@media (max-width: 900px) {
+  .p-servicios__hero { min-height: auto; } /* que crezca por contenido */
+  .p-servicios__hero::before { background-position: center; } /* centra imagen */
+  .p-servicios__container {
+    padding: clamp(1.5rem, 4vw, 3rem) 1rem clamp(1.5rem, 5vw, 4rem);
+  }
+  .p-servicios__title { max-width: 24ch; }
+}
+
+
+/* 2) CONTENEDOR COMÚN
+   Mantiene márgenes consistentes donde se utilice .l-container */
+.l-container {
+  max-width: var(--container-max, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--container-pad-x, 1rem);
+}
+
+
+/* 3) SECCIÓN “NUESTRO EQUIPO PROFESIONAL”
+   Grid 2 columnas: retrato circular + panel de contenido */
+
+/* Layout principal */
+.team {
+  --img-d: clamp(220px, 32vw, 320px); /* Diámetro de imagen */
+  --pad: clamp(1rem, 3vw, 2rem);      /* Padding del panel */
+  --radius: 28px;
+
+  display: grid;
+  grid-template-columns: minmax(0, var(--img-d)) 1fr;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+}
+
+/* Imagen circular */
+.team__image { display: flex; justify-content: center; }
+
+.team__circle {
+  width: var(--img-d);
+  height: var(--img-d);
+  background: linear-gradient(135deg, #e0e7ef 0%, #f0f4f8 100%);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 34px rgba(2, 6, 23, .15);
+  overflow: hidden;
+}
+
+.team__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  /* máscara suave con fallback */
+  -webkit-mask-image: radial-gradient(circle, #000 98%, transparent 100%);
+          mask-image: radial-gradient(circle, #000 98%, transparent 100%);
+}
+
+/* Panel de contenido */
+.team__content {
+  background: linear-gradient(135deg, #0a4068 0%, #1a5c8f 100%);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: var(--pad);
+  box-shadow: 0 18px 40px rgba(10, 64, 104, .35), 0 2px 6px rgba(2, 6, 23, .08);
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Línea decorativa superior */
+.team__content::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  opacity: .35;
+}
+
+/* Tipografía del panel */
+.team__title {
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: .9rem;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.team__desc,
+.team__intro,
+.team__results-text {
+  color: #d4e9f7;
+  line-height: 1.65;
+  font-size: clamp(.95rem, 1.2vw, 1.05rem);
+  margin-bottom: 1rem;
+}
+
+.team__highlight { color: #56d4f7; font-weight: 600; }
+
+.team__subtitle {
+  color: #56d4f7;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 700;
+  margin: .75rem 0 .25rem;
+}
+
+/* Lista de puntos */
+.team__list {
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: .75rem 0 1.25rem;
+  max-width: 62ch;
+}
+.team__list li { margin: .35rem 0; color: #d4e9f7; }
+.team__list li::marker { color: #eaf2ff; }
+
+/* CTA secundario dentro del panel */
+.team__cta { margin-top: .5rem; text-align: center; }
+.team__cta-title {
+  color: #56d4f7;
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  font-weight: 700;
+}
+
+/* Team: Responsive */
+@media (max-width: 1024px) {
+  .team { grid-template-columns: 1fr; justify-items: center; }
+  .team__content { width: min(100%, 800px); }
+}
+@media (max-width: 480px) {
+  .team { gap: 1rem; }
+  .team__content { border-radius: 22px; }
+}
+
+
+/* 4) SECCIÓN “SERVICIOS DESTACADOS”
+   Grid de tarjetas con glassmorphism */
+
+/* Grid auto-fit adaptable */
+.services-featured__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Tarjeta */
+.service-card {
+  background: #1a5c8f;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 28px;
+  padding: clamp(1.25rem, 2.2vw, 1.6rem);
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: clamp(240px, 28vw, 300px);
+  color: #fff;
+
+  box-shadow: 0 18px 40px rgba(2, 6, 23, .22), 0 2px 6px rgba(2, 6, 23, .08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(2, 6, 23, .28), 0 4px 10px rgba(2, 6, 23, .12);
+}
+
+/* Línea decorativa superior */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  opacity: .35;
+  pointer-events: none;
+}
+
+/* Icono redondo con blur */
+.service-card__icon {
+  width: 90px;
+  height: 90px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  backdrop-filter: blur(8px);
+  padding: 18px;
+}
+.service-card__icon img {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Título + lista */
+.service-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .6rem;
+  line-height: 1.3;
+}
+
+.service-card__list {
+  margin: 0 auto .9rem;
+  padding-left: 1.05rem;
+  max-width: 34ch;
+  text-align: left;
+  color: #d4e9f7;
+  line-height: 1.55;
+  font-size: .96rem;
+}
+.service-card__list li { margin: .2rem 0; }
+.service-card__list li::marker { color: #fff; font-size: 1.05em; }
+
+/* Badge inferior (ej. “Requiere ayuno”) */
+.service-card__badge {
+  text-align: center;
+  font-weight: 700;
+  color: #00d4ff;
+  font-size: .9rem;
+  margin-top: auto;
+  padding-top: .15rem;
+  text-shadow: 0 0 8px rgba(0, 212, 255, .3);
+}
+
+/* Servicios destacados: Responsive */
+@media (max-width: 768px) {
+  .services-featured { padding-block: 2rem; }
+  .services-featured__grid { grid-template-columns: 1fr; gap: 1rem; }
+  .service-card { padding: 1.25rem; min-height: unset; }
+}
+@media (max-width: 480px) {
+  .service-card { border-radius: 20px; padding: 1rem; }
+  .service-card__icon { width: 75px; height: 75px; padding: 14px; margin-bottom: 1rem; }
+  .service-card__title { font-size: 1.05rem; }
+  .service-card__list { font-size: .9rem; max-width: 100%; }
+}
+
+
+/* 5) UTILIDADES Y ACCESIBILIDAD */
+
+.service-card:focus-within {
+  outline: 2px solid #60a5fa;
+  outline-offset: 4px;
+}
+
+/* Reduce motion global para estos bloques */
+@media (prefers-reduced-motion: reduce) {
+  .p-servicios__hero *,
+  .team__content,
+  .service-card,
+  .service-card * {
+    transition: none !important;
+    animation: none !important;
+  }
+  .service-card:hover { transform: none !important; }
+}
+
