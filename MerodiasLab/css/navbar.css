@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9999; /* Siempre visible sobre todo el contenido */
+  z-index: 9999;
   
   height: var(--nav-h);
   min-height: var(--nav-h);
@@ -19,7 +19,6 @@
   border-bottom: 1px solid rgba(15,23,42,.06);
   box-shadow: 0 6px 18px rgba(2,6,23,.04);
   
-  /* Fuerza un layer de composición independiente */
   isolation: isolate;
   transform: translateZ(0);
 }
@@ -31,6 +30,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding: 0 1.5rem;
 }
 
 /* Logo/Marca */
@@ -44,9 +44,15 @@
   gap: .35rem;
   padding: .5rem .35rem;
   font-size: 1.55rem;
-   line-height: 1;
+  line-height: 1;
   font-weight: 700;
   color: var(--brand-dark);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.c-navbar__brand:hover {
+  opacity: 0.85;
 }
 
 .c-navbar__brand .brand-a {
@@ -80,7 +86,8 @@
   color: var(--link);
   padding: .7rem 1rem; 
   border-radius: 10px;
-  transition: color .15s, background .15s;
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease;
 }
 
 .c-navbar__link:hover,
@@ -89,7 +96,7 @@
   background: var(--link-bg-hover);
 }
 
-/* Contenedor de botones (Ingresar/Registrarse) */
+/* Contenedor de botones */
 .c-navbar__actions {
   display: flex;
   gap: .5rem;
@@ -107,63 +114,140 @@
   cursor: pointer;
   font-size: 1.4rem; 
   line-height: 1;
+  transition: all 0.2s ease;
 }
 
+.c-navbar__toggle:hover {
+  background: rgba(37,99,235,.08);
+  border-color: rgba(37,99,235,.4);
+}
 
-
-/* Menú móvil: ya usa var(--header-offset), lo dejamos explícito */
-@media (max-width: 900px) {
-  .c-navbar__links {
-    top: calc(var(--header-offset) + 8px);
-  }
+.c-navbar__toggle:active {
+  transform: scale(0.95);
 }
 
 /* =============================================
-   RESPONSIVE - Mobile
+   RESPONSIVE - Mobile/Tablet
    ============================================= */
 
 @media (max-width: 900px) {
-  /* Muestra el botón hamburguesa */
+  .c-navbar__inner {
+    padding: 0 1rem;
+  }
+  
   .c-navbar__toggle {
     display: inline-flex;
     align-items: center;
   }
   
-  /* Menú desplegable */
+  /* Menú dropdown */
   .c-navbar__links {
-    display: none;
     position: absolute;
     right: 1rem;
     top: calc(var(--header-offset) + 8px);
-    background: #fff;
-    border: 1px solid rgba(15,23,42,.06);
-    border-radius: 12px;
-    box-shadow: 0 8px 28px rgba(2,6,23,.12);
-    padding: .5rem;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
     flex-direction: column;
-    gap: .25rem;
-    min-width: 220px;
+    gap: 0.25rem;
+    min-width: 200px;
+    max-width: calc(100vw - 2rem);
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    
     z-index: 99999;
   }
   
-  /* Muestra el menú cuando está abierto */
   .c-navbar__links[data-open="true"] {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateY(0);
   }
   
-  /* Ajustes de tamaño para móvil */
-  .c-navbar__brand {
-    font-size: 1.15rem;
-  }
-  
-  .c-navbar__link {
-    font-size: .98rem;
-    padding: .5rem .75rem;
+  .c-navbar__links li {
     width: 100%;
   }
   
-  .c-navbar__actions .c-btn {
-    padding: .55rem .9rem;
-    font-size: .97rem;
+  .c-navbar__link {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Mantener hover en todas las pantallas */
+  .c-navbar__link:hover {
+    color: var(--link-hover);
+    background: var(--link-bg-hover);
+  }
+  
+  .c-navbar__brand {
+    font-size: 1.35rem;
+  }
+  
+  /* Ocultar botón Ingresar del navbar principal */
+  .c-navbar__inner > .c-navbar__actions {
+    display: none;
+  }
+  
+  /* Botón Ingresar dentro del menú - MÁS COMPACTO */
+  .c-navbar__links::after {
+    content: 'Ingresar';
+    display: block;
+    width: calc(100% - 1rem); /* Reducir ancho */
+    margin: 0.75rem auto 0.25rem; /* Centrar y reducir márgenes */
+    padding: 0.55rem 0.75rem; /* Padding más pequeño */
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    font-size: 0.85rem; /* Texto más pequeño */
+    font-weight: 600;
+    border-radius: 8px; /* Radio más pequeño */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  
+  .c-navbar__links::after:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  .c-navbar__inner {
+    padding: 0 0.75rem;
+  }
+  
+  .c-navbar__brand {
+    font-size: 1.2rem;
+  }
+  
+  .c-navbar__toggle {
+    padding: .65rem .85rem;
+    font-size: 1.3rem;
+  }
+  
+  .c-navbar__links {
+    right: 0.75rem;
+    min-width: 180px;
+  }
+  
+  /* Botón aún más compacto en pantallas muy pequeñas */
+  .c-navbar__links::after {
+    width: calc(100% - 0.5rem);
+    padding: 0.5rem 0.65rem;
+    font-size: 0.825rem;
   }
 }
