@@ -1,0 +1,57 @@
+<!-- components/login/login.html -->
+<div id="loginModal" class="lgn-modal" hidden aria-hidden="true">
+  <div class="lgn-backdrop" data-close></div>
+
+  <div class="lgn-dialog" role="dialog" aria-modal="true" aria-labelledby="lgnTitle" aria-describedby="lgnDesc">
+    <button type="button" class="lgn-close" aria-label="Cerrar" data-close>
+      &times;
+    </button>
+
+    <div class="lgn-content">
+      <!-- Lado izquierdo (branding/info) -->
+      <section class="lgn-left">
+        <div class="lgn-avatar" aria-hidden="true">
+          <!-- ícono simple -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+            <circle cx="12" cy="7.5" r="3.5"></circle>
+            <path d="M4 19.5c1.5-3.5 4.5-5.5 8-5.5s6.5 2 8 5.5"></path>
+          </svg>
+        </div>
+
+        <h1 id="lgnTitle" class="lgn-title">Accede a tus resultados</h1>
+        <p id="lgnDesc" class="lgn-subtitle">
+          Consulta tus exámenes de laboratorio de forma segura.
+        </p>
+      </section>
+
+      <!-- Lado derecho (form) -->
+      <section class="lgn-right">
+        <form id="lgnForm" class="lgn-form" novalidate>
+          <div class="lgn-field">
+            <label for="lgnEmail">Correo</label>
+            <input id="lgnEmail" name="email" type="email" class="lgn-input" placeholder="tucorreo@dominio.com" required>
+            <small class="lgn-help" aria-live="polite"></small>
+          </div>
+
+          <div class="lgn-field">
+            <div class="lgn-row">
+              <label for="lgnPass">Contraseña</label>
+              <a class="lgn-forgot" href="recuperar.html">¿Olvidaste tu contraseña?</a>
+            </div>
+            <input id="lgnPass" name="password" type="password" class="lgn-input" placeholder="••••••••" required>
+            <small class="lgn-help" aria-live="polite"></small>
+          </div>
+
+          <div class="lgn-remember">
+            <label class="lgn-check">
+              <input type="checkbox" id="lgnRemember" name="remember">
+              <span>Recordarme</span>
+            </label>
+          </div>
+
+          <button type="submit" class="lgn-btn">Entrar</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

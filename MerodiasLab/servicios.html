@@ -14,8 +14,12 @@
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/servicios.css" />
   <link rel="stylesheet" href="css/footer.css" />
-    <!-- JS -->
-  <script src="./js/navbar.js"></script>
+  <link rel="stylesheet" href="components/login/login.css">
+
+   <!-- JS-->        
+  <script src="js/navbar.js"></script>  
+  <script src="components/login/config.js" defer></script>   <!-- opcional p/ redirección -->
+  <script src="components/login/login.js"></script>
 </head>
 
 <body class="p-servicios">
@@ -43,10 +47,14 @@
         <li><a class="c-navbar__link" href="servicios.html" aria-current="page">Servicios</a></li>
         <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
         <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
+          <!-- Botón para móvil -->
+        <li class="c-navbar__item-mobile">
+          <button class="c-btn c-btn--full" style="--btn-bg:#2563eb">Ingresar</button>
+        </li>
       </ul>
 
       <div class="c-navbar__actions">
-        <button class="c-btn" data-open-login data-mode="register" style="--btn-bg:#2563eb">Ingresar</button>
+          <button class="c-btn" style="--btn-bg:#2563eb">Ingresar</button>
       </div>
     </nav>
   </header>
