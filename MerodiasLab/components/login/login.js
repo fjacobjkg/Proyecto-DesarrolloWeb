@@ -6,12 +6,12 @@
   };
 
   const norm = (t) => (t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
-  const MOBILE_TRANSITION_MS = 320; 
+  const MOBILE_TRANSITION_MS = 320;
 
   onReady(async () => {
-    // Config
+    // Config solo para cargar el HTML (sin redirect)
     const cfg = Object.assign(
-      { src: 'components/login/login.html', redirect: 'panel.html' },
+      { src: 'components/login/login.html' },
       window.LOGIN_COMPONENT || {}
     );
 
@@ -28,14 +28,15 @@
       return;
     }
 
-    const modal  = document.getElementById('loginModal');
-    const dialog = modal?.querySelector('.lgn-dialog');
+    const modal    = document.getElementById('loginModal');
+    const dialog   = modal?.querySelector('.lgn-dialog');
     const backdrop = modal?.querySelector('.lgn-backdrop');
     const closeBtns = modal?.querySelectorAll('[data-close]');
-    const form = modal?.querySelector('#lgnForm');
+    const form     = modal?.querySelector('#lgnForm'); // solo para asegurar que existe
+
     if (!modal || !dialog || !form) return;
 
-    // -------- helpers
+    // -------- helpers A11y
     const focusablesSel = 'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
     let lastActive = null;
 
@@ -56,7 +57,7 @@
         navToggle?.setAttribute('aria-expanded', 'false');
         const icon = navToggle?.querySelector('i');
         if (icon) icon.className = 'ri-menu-line';
-        return true; 
+        return true;
       }
       return false;
     }
@@ -70,7 +71,8 @@
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
-      const first = modal.querySelector('input, select, textarea, button, a');
+      // Enfocar usuario si existe; si no, primer foco disponible
+      const first = modal.querySelector('#lgnUser, input, select, textarea, button, a');
       first?.focus({ preventScroll: true });
 
       document.addEventListener('keydown', onKeyDown);
@@ -102,16 +104,15 @@
         .find(el => norm(el.textContent).includes('ingresar')) ||
       actions?.querySelector('button, a');
 
-    // Botón móvil ( en <ul id="navMenu">)
+    // Botón móvil (en <ul id="navMenu">)
     const mobileBtn =
       document.querySelector('#navMenu .c-navbar__item-mobile .c-btn') ||
-      document.querySelector('#navMenu .c-btn'); // fallback por si cambia la clase
+      document.querySelector('#navMenu .c-btn');
 
-    // Conectar ambos triggers
+    // Conectar triggers
     if (desktopBtn) {
       desktopBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // si el menú móvil estuviera abierto por cualquier motivo, ciérralo
         const wasOpen = closeNavIfOpen();
         if (wasOpen) setTimeout(openModal, MOBILE_TRANSITION_MS);
         else openModal();
@@ -121,38 +122,14 @@
     if (mobileBtn) {
       mobileBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // este SIEMPRE vive dentro del menú móvil, así que cerramos y esperamos la transición
-        const wasOpen = closeNavIfOpen(); // true casi siempre aquí
+        const wasOpen = closeNavIfOpen();
         setTimeout(openModal, wasOpen ? MOBILE_TRANSITION_MS : 0);
       });
     }
 
-    //  cerrar modal (backdrop / X)
+    // Cierre (backdrop / X)
     backdrop?.addEventListener('click', closeModal);
     closeBtns?.forEach(b => b.addEventListener('click', closeModal));
 
-    // submit + validación mínima + redirect
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = form.email?.value?.trim();
-      const pass  = form.password?.value?.trim();
-
-      const emailField = form.querySelector('#lgnEmail');
-      const passField  = form.querySelector('#lgnPass');
-      const emailHelp  = emailField?.closest('.lgn-field')?.querySelector('.lgn-help');
-      const passHelp   = passField?.closest('.lgn-field')?.querySelector('.lgn-help');
-
-      [emailField, passField].forEach(i => i?.classList.remove('is-invalid'));
-      if (emailHelp) emailHelp.textContent = '';
-      if (passHelp)  passHelp.textContent  = '';
-
-      let invalid = false;
-      if (!email) { invalid = true; emailField?.classList.add('is-invalid'); if (emailHelp) emailHelp.textContent = 'Ingresa tu correo.'; }
-      if (!pass)  { invalid = true; passField?.classList.add('is-invalid'); if (passHelp)  passHelp.textContent  = 'Ingresa tu contraseña.'; }
-      if (invalid) return;
-
-      // fetch/login real
-      window.location.href = cfg.redirect;
-    });
   });
 })();
