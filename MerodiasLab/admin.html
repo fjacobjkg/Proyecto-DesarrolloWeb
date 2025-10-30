@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Panel Administrador — Merodias Lab</title>
+
+  <!-- Fuentes + Iconos -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS del sitio -->
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/footer.css"/>
+
+  <!-- CSS de esta página -->
+  <link rel="stylesheet" href="css/admin.css"/>
+</head>
+
+<body class="p-admin">
+
+  <!-- NAVBAR -->
+  <header class="c-navbar">
+    <nav class="c-navbar__inner" aria-label="Principal">
+      <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
+        <span class="brand-a">Merodias</span>
+        <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
+      </a>
+
+      <button class="c-navbar__toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú" data-toggle>
+        <i class="ri-menu-line" aria-hidden="true"></i>
+      </button>
+
+      <ul id="navMenu" class="c-navbar__links" data-open="false" data-menu>
+        <li><a class="c-navbar__link" href="inicio.html">Inicio</a></li>
+        <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
+        <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
+        <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
+
+        <!-- móvil -->
+        <li class="c-navbar__item-mobile">
+          <a class="c-btn c-btn--full c-btn--danger" href="admin.html">
+            <i class="ri-admin-line"></i> Panel Admin
+          </a>
+        </li>
+        <li class="c-navbar__item-mobile">
+          <button class="c-btn c-btn--full is-hidden" data-action="logout">Cerrar sesión</button>
+        </li>
+      </ul>
+
+      <div class="c-navbar__actions">
+        <a class="c-btn c-btn--danger" href="admin.html">
+          <i class="ri-admin-line"></i> Panel Admin
+        </a>
+        <button class="c-btn c-btn--ghost is-hidden" data-action="logout">Cerrar sesión</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="page">
+    <!-- Header de la página -->
+    <div class="page-header">
+      <div>
+        <h1>
+          <i class="ri-dashboard-line" aria-hidden="true"></i>
+          Panel administrador
+        </h1>
+        <p class="fx-note">Gestiona citas y pacientes</p>
+      </div>
+      <span id="feed" class="fx-note" aria-live="polite"></span>
+    </div>
+
+    <!-- Filtros -->
+    <section class="fx-card">
+      <h2 class="section__header">
+        <i class="ri-filter-line" aria-hidden="true"></i> Filtros
+      </h2>
+
+      <form id="filters" class="filters" autocomplete="off">
+        <div>
+          <label for="fStatus">Estado</label>
+          <select id="fStatus" name="status">
+            <option value="">Todos</option>
+            <option value="pending">Pendientes</option>
+            <option value="confirmed">Confirmadas</option>
+            <option value="completed">Completadas</option>
+            <option value="cancelled">Canceladas</option>
+          </select>
+        </div>
+
+        <div class="filters__wide">
+          <label for="fQ">Buscar paciente</label>
+          <input id="fQ" name="q" type="text" placeholder="Nombre o correo del paciente..."/>
+        </div>
+
+        <div>
+          <button id="fGo" class="c-btn" type="submit">
+            <i class="ri-search-line"></i> Buscar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Tabla de citas -->
+    <section class="fx-card">
+      <h2 class="section__header">
+        <i class="ri-calendar-check-line" aria-hidden="true"></i> Citas registradas
+      </h2>
+
+      <div class="table-wrap">
+        <table class="c-table" id="tblAdmin">
+          <thead>
+            <tr>
+              <th><i class="ri-time-line" aria-hidden="true"></i> Fecha/Hora</th>
+              <th><i class="ri-service-line" aria-hidden="true"></i> Servicio</th>
+              <th><i class="ri-user-line" aria-hidden="true"></i> Paciente</th>
+              <th><i class="ri-file-text-line" aria-hidden="true"></i> Asunto</th>
+              <th><i class="ri-flag-line" aria-hidden="true"></i> Estado</th>
+              <th><i class="ri-settings-3-line" aria-hidden="true"></i> Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="c-table__loading">
+              <td colspan="6">
+                <i class="ri-loader-4-line loading-spinner icon-xl" aria-hidden="true"></i>
+                <p class="fx-note">Cargando citas...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+      <!-- FOOTER -->
+    <footer class="c-footer" role="contentinfo">
+      <div class="c-footer__inner">
+        <div class="c-footer__grid">
+          <div>
+            <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
+            <p class="c-footer__p">
+              En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos
+              <strong>confiables y oportunos</strong>. Cuidamos cada muestra con
+              trazabilidad y buenas prácticas, porque tu salud es primero.
+            </p>
+            <p class="c-footer__p">
+              La información de este sitio es de carácter informativo y <strong>no sustituye</strong>
+              la consulta médica. Ante cualquier duda, acude con tu médico tratante.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Empresa</h4>
+            <p class="c-footer__p"><a href="#historia">Quiénes somos</a></p>
+            <p class="c-footer__p"><a href="inicio.html#politica">Política de calidad</a></p>
+            <p class="c-footer__p"><a href="#equipo">Nuestro equipo</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Soporte</h4>
+            <p class="c-footer__p"><a href="contacto.html#formCita">Contacto</a></p>
+            <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
+            <p class="c-footer__p"><a href="inicio.html#faq">Preguntas frecuentes</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Síguenos</h4>
+            <div class="c-footer__socials" aria-label="Redes sociales">
+              <a href="https://instagram.com/"
+                aria-label="Instagram"
+                title="Instagram"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-instagram-line" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.facebook.com/"
+                aria-label="Facebook"
+                title="Facebook"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-facebook-fill" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://x.com/"
+                aria-label="X (Twitter)"
+                title="X (Twitter)"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-twitter-x-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-footer__bar">
+        <div class="c-footer__bar-inner">
+          <p>Copyright © 2025, Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+  <!-- JS -->
+  <script defer src="js/navbar.js"></script>
+  <script defer src="js/base.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* ======= BASE.CSS - Sistema de diseño global ======= */
+/*  Sistema de diseño global */
 
 /* Variables globales */
 :root {
@@ -79,7 +79,7 @@ section > :last-child {
   padding-inline: var(--container-pad-x);
 }
 
-/* Alinea navbar/footer al mismo ancho */
+/* Alinea navbar y footer al mismo ancho */
 .c-navbar__inner,
 .c-footer__inner {
   max-width: var(--container-max);

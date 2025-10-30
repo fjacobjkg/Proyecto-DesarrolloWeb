@@ -19,46 +19,52 @@
 
    <!-- JS-->        
   <script src="js/navbar.js"></script>  
-  <script src="components/login/config.js" defer></script>   <!-- opcional p/ redirección -->
   <script src="components/login/login.js"></script>
 </head>
 
 <body class="p-inicio">
-    <!-- NAVBAR -->
-  <header class="c-navbar">
-    <nav class="c-navbar__inner" aria-label="Principal">
-      <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
-        <span class="brand-a">Merodias</span>
-        <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
-      </a>
+     <!-- NAVBAR -->
+<header class="c-navbar" role="banner">
+  <nav class="c-navbar__inner" aria-label="Principal">
+    <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
+      <span class="brand-a">Merodias</span>
+      <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
+    </a>
 
-      <button class="c-navbar__toggle" 
-              aria-expanded="false" 
-              aria-controls="navMenu"
-              aria-label="Abrir menú" 
-              data-toggle>
-        <i class="ri-menu-line" aria-hidden="true"></i>
-      </button>
+    <button class="c-navbar__toggle"
+            aria-expanded="false"
+            aria-controls="navMenu"
+            aria-label="Abrir menú"
+            data-toggle>
+      <i class="ri-menu-line" aria-hidden="true"></i>
+    </button>
 
-      <ul id="navMenu" 
-          class="c-navbar__links" 
-          data-open="false" 
-          data-menu>
-        <li><a class="c-navbar__link" href="inicio.html" aria-current="page">Inicio</a></li>
-        <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
-        <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
-        <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
-            <!-- Botón para móvil -->
+    <ul id="navMenu"
+        class="c-navbar__links"
+        data-open="false"
+        data-menu>
+      <li><a class="c-navbar__link" href="inicio.html" aria-current="page">Inicio</a></li>
+      <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
+      <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="c-navbar__link" href="contacto.html" >Contacto</a></li>
+
+      <!-- móvil -->
         <li class="c-navbar__item-mobile">
-          <button class="c-btn c-btn--full" style="--btn-bg:#2563eb">Ingresar</button>
+          <button class="c-btn c-btn--full" style="--btn-bg:#2563eb" data-action="login">Ingresar</button>
+          <a class="c-btn c-btn--full c-btn--ghost" href="perfil.html" style="margin-top:.5rem;display:none" data-action="profile">Mi cuenta</a>
+          <button class="c-btn c-btn--full c-btn--ghost" style="margin-top:.5rem;display:none" data-action="logout">Cerrar sesión</button>
         </li>
-      </ul>
+    </ul>
 
-      <div class="c-navbar__actions">
-        <button class="c-btn" style="--btn-bg:#2563eb">Ingresar</button>
-      </div>
-    </nav>
-  </header>
+   <!-- escritorio -->
+  <div class="c-navbar__actions">
+    <button class="c-btn c-btn--primary" style="--btn-bg:#2563eb" data-action="login">Ingresar</button>
+    <a href="perfil.html" class="c-btn c-btn--primary" style="margin-left:.5rem;display:none" data-action="profile">Mi cuenta</a>
+    <button class="c-btn c-btn--ghost" style="margin-left:.5rem;display:none" data-action="logout">Cerrar sesión</button>
+  </div>
+  </nav>
+</header>
+
 
   <main>
       <!-- HERO -->
@@ -71,7 +77,7 @@
             brindarte diagnósticos precisos, rápidos y seguros.
           </p>
           <div class="hero__actions">
-            <a class="c-btn" href="#secServicios" style="--btn-bg:#2563eb">Conocer nuestros servicios</a>
+            <a class="c-btn" href="inicio.html#Servicios" style="--btn-bg:#2563eb">Conocer nuestros servicios</a>
             <a class="c-btn c-btn--ghost" href="contacto.html#formCita">Agendar mi cita</a>
           </div>
         </div>
@@ -110,7 +116,7 @@
     </section>
 
       <!-- SERVICIOS -->
-    <section id="secServicios" class="services">
+    <section id="Servicios" class="services">
       <div class="services__container">
         <h2 class="services__title">Nuestros servicios</h2>
         <div class="services__grid">
@@ -174,7 +180,7 @@
           <details class="faq__item">
             <summary class="faq__question">¿Cómo recibo mis resultados?</summary>
             <div class="faq__answer">
-              <p>Puedes retirarlos presencialmente o consultarlos en línea con tu usuario y contraseña.</p>
+              <p>Puedes retirarlos presencialmente o consultarlos en línea con tu correo y contraseña.</p>
             </div>
           </details>
 
@@ -226,7 +232,7 @@
           <h3 class="impact__cta-title">Agenda tu cita hoy</h3>
           <p class="impact__cta-text">Resultados confiables cuando los necesitas.</p>
           <div class="impact__actions">
-            <a class="c-btn c-btn--ghost" href="contacto.html#formCita">Agendar ahora</a>
+            <a class="c-btn c-btn--ghost" href="contacto.html#Cita">Agendar ahora</a>
           </div>
         </div>
       </div>
@@ -297,6 +303,6 @@
         </div>
       </div>
     </footer>
-
+<script src="js/base.js"></script>
 </body>
 </html>

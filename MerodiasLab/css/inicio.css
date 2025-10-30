@@ -1,4 +1,3 @@
-/* ===== 0. / PALETA / SOMBRAS ===== */
 .p-inicio {
   --section-gap: 0;
 
@@ -24,11 +23,9 @@
   --card-shadow-strong: 0 16px 40px rgba(18,90,172,.12);
 }
 
-/* Reset separación entre secciones principales del <main> */
 .p-inicio main > * + * { margin-block-start: 0; }
 
-/* ===== 1. SECCIONES ENVOLVENTES & CONTENEDORES COMPARTIDOS ===== */
-/* Envolventes: fondo blanco, padding fluido, y posicionamiento */
+/* SECCIONES ENVOLVENTES & CONTENEDORES COMPARTIDOS  */
 .p-inicio .services,
 .p-inicio .about,
 .p-inicio .faq,
@@ -39,7 +36,6 @@
   color: var(--ink);
 }
 
-/* Desactivar ::before heredados del layout base cuando existan */
 .p-inicio .services::before,
 .p-inicio .faq::before,
 .p-inicio .impact::before { display: none; }
@@ -56,7 +52,7 @@
   z-index: 1;
 }
 
-/* Títulos grandes (unificación de estilo de sección) */
+/* Títulos grandes */
 .p-inicio .services__title,
 .p-inicio .about__title {
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
@@ -68,7 +64,7 @@
   margin-bottom: 1rem;
 }
 
-/* Badges (píldoras) compartidos */
+/* Badges */
 .p-inicio .about__badge,
 .p-inicio .impact__badge {
   display: inline-flex;
@@ -83,7 +79,7 @@
   margin-bottom: 1.1rem;
 }
 
-/* ===== 1. HERO INICIO ===== */
+/*1. HERO INICIO */
 .p-inicio .hero {
   --hero-h: clamp(700px, 100vh, 1000px);
   --header-offset: 72px;
@@ -102,7 +98,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: center 10% / cover no-repeat url("/MerodiasLab/assets/inicio.jpg");
+  background: center 10% / cover no-repeat url("/assets/inicio.jpg");
 }
 
 .p-inicio .hero::after {
@@ -111,7 +107,7 @@
   background-image: linear-gradient(to right, rgba(18,90,172,.90), rgba(18,116,172,.70));
 }
 
-/* Contenido centrado y acotado */
+
 .p-inicio .hero__container {
   position: relative; z-index: 2;
   width: 100%; max-width: 1100px; margin-inline: auto;
@@ -143,7 +139,6 @@
   display: flex; gap: .9rem; flex-wrap: wrap; justify-content: center;
 }
 
-/* Botón ghost en hero (respetando clases base) */
 .p-inicio .hero .c-btn.c-btn--ghost {
   --btn-color: #fff; --btn-bg: rgba(255,255,255,.14); --btn-border: rgba(255,255,255,.38);
   color: var(--btn-color); background: var(--btn-bg); border: 1px solid var(--btn-border);
@@ -156,7 +151,7 @@
   .p-inicio .hero__container { padding: clamp(1.5rem, 4vw, 3rem) 1rem clamp(1.5rem, 5vw, 4rem); }
 }
 
-/* ===== 2. NOSOTROS (ABOUT) ===== */
+/* 2. NOSOTROS */
 
 .p-inicio .about {
   background: #fff;
@@ -193,28 +188,27 @@
   margin-bottom: 1.1rem;
 }
 
-/* --- Título de la sección (ajuste de “letras”) --- */
+/* --- Título de la sección --- */
 .p-inicio .about__title {
-  /* tamaños conservadores para evitar saltos y cortar viudas/huérfanas */
   font-size: clamp(2.1rem, 4.3vw, 3.1rem);
   font-weight: 800;
-  line-height: 1.12;              /* más respiración vertical */
-  letter-spacing: -0.01em;        /* menos negativo → mejor lectura */
+  line-height: 1.12;             
+  letter-spacing: -0.01em;        
   color: var(--ink);
   margin-bottom: 1rem;
   text-shadow: none;
-  text-wrap: balance;             /* balancea líneas del título */
+  text-wrap: balance;             
   word-break: normal;
-  max-width: 22ch;                /* bloquea línea demasiado larga */
+  max-width: 22ch;               
 }
 
 /* --- Párrafo descriptivo --- */
 .p-inicio .about__text {
   font-size: clamp(1.04rem, 2vw, 1.17rem);
   line-height: 1.7;
-  color: var(--muted);            /* más contraste suave que brand-700 */
+  color: var(--muted);           
   margin-bottom: 1.1rem;
-  max-width: 60ch;                /* ancho de lectura cómodo */
+  max-width: 60ch;                
 }
 
 /* --- Lista de características --- */
@@ -255,7 +249,7 @@
   color: var(--ink);
   font-weight: 500;
   line-height: 1.6;
-  letter-spacing: 0;              /* evita que se vea comprimido */
+  letter-spacing: 0;             
 }
 
 /* --- Imagen con overlay y efecto zoom --- */
@@ -283,8 +277,8 @@
 /* --- RESPONSIVE: Nosotros en tablets y móviles --- */
 @media (max-width: 980px) {
   .p-inicio .about__container { grid-template-columns: 1fr; gap: 3rem; }
-  .p-inicio .about__image { order: -1; } /* Mueve la imagen arriba */
-  .p-inicio .about__title { max-width: 28ch; } /* un poco más ancho en 1 col */
+  .p-inicio .about__image { order: -1; } 
+  .p-inicio .about__title { max-width: 28ch; } 
 }
 
 @media (max-width: 640px) {
@@ -323,7 +317,7 @@
   .p-inicio .about__feature:hover { transform: none !important; }
 }
 
-/* ===== 3. SERVICIOS ===== */
+/* 3. SERVICIOS */
 .p-inicio .services__subtitle {
   text-align: center;
   font-size: clamp(1.05rem, 2vw, 1.2rem);
@@ -396,7 +390,7 @@
 }
 
 
-/* ===== 4. FAQ ===== */
+/*  4. FAQ */
 .p-inicio .faq__header { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
 .p-inicio .faq__title {
   font-size: clamp(2rem, 4vw, 2.8rem);
@@ -453,7 +447,7 @@
 }
 .p-inicio .faq__answer strong { color: var(--ink); font-weight: 600; }
 
-/* ===== 5. IMPACTO ===== */
+/*  5. IMPACTO  */
 .p-inicio .impact__container {
   display: grid; grid-template-columns: 1fr;
   gap: clamp(3.5rem, 5vw, 5rem);
@@ -539,14 +533,14 @@
   box-shadow: 0 10px 24px rgba(18,90,172,.18);
 }
 
-/* ===== 6. UTILIDADES DE BOTONES (HOVER/ACTIVE) ===== */
+/*  6. UTILIDADES DE BOTONES */
 .p-inicio .c-btn {
   transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
 }
 .p-inicio .c-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
 .p-inicio .c-btn:active { transform: translateY(-1px); }
 
-/* ===== 7. RESPONSIVE GLOBAL ===== */
+/*  7. RESPONSIVE GLOBAL */
 @media (max-width: 640px) {
   /* Stats a 1 columna */
   .p-inicio .impact__stats { grid-template-columns: 1fr; gap: 1.25rem; }
@@ -572,7 +566,7 @@
   }
 }
 
-/* ===== 8. ACCESIBILIDAD: REDUCED MOTION ===== */
+/*  8. ACCESIBILIDAD: REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   .p-inicio * {
     animation: none !important;

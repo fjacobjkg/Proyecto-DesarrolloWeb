@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mi cuenta — Merodias Lab</title>
+
+  <!-- Fuentes + Iconos -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS del sitio -->
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/footer.css"/>
+
+  <!-- CSS de esta página -->
+  <link rel="stylesheet" href="css/perfil.css"/>
+</head>
+
+<body class="p-perfil">
+  <!-- NAVBAR -->
+
+
+  <header class="c-navbar">
+  <nav class="c-navbar__inner" aria-label="Principal">
+    <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
+      <span class="brand-a">Merodias</span>
+      <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
+    </a>
+
+    <button class="c-navbar__toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú" data-toggle>
+      <i class="ri-menu-line" aria-hidden="true"></i>
+    </button>
+
+    <ul id="navMenu" class="c-navbar__links" data-open="false" data-menu>
+      <li><a class="c-navbar__link" href="inicio.html">Inicio</a></li>
+      <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
+      <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="c-navbar__link" href="contacto.html">Contacto</a></li>
+
+      <!-- móvil -->
+      <li class="c-navbar__item-mobile">
+        <!-- SIEMPRE visible: sin data-action -->
+        <a id="btnPatientMobile" class="c-btn c-btn--full c-btn--patient" href="perfil.html">
+          <i class="ri-user-heart-line" aria-hidden="true"></i> Panel Paciente
+        </a>
+      </li>
+
+      <!-- Botón de logout (controlado por tu navbar.js) -->
+      <li class="c-navbar__item-mobile">
+        <button class="c-btn c-btn--full is-hidden" data-action="logout">Cerrar sesión</button>
+      </li>
+    </ul>
+
+    <div class="c-navbar__actions">
+      <!-- SIEMPRE visible: sin data-action -->
+      <a id="btnPatient" class="c-btn c-btn--patient" href="perfil.html">
+        <i class="ri-user-heart-line" aria-hidden="true"></i> Panel Paciente
+      </a>
+
+      <!-- Logout (tu navbar.js lo muestra/oculta) -->
+      <button class="c-btn c-btn--ghost is-hidden" data-action="logout">Cerrar sesión</button>
+    </div>
+  </nav>
+</header>
+
+    <!-- MAIN -->
+    <main class="page">
+      <!-- Encabezado con ícono -->
+      <div class="page-header">
+        <h1><i class="ri-user-3-line"></i> Mi cuenta</h1>
+      </div>
+
+      <!-- Mis datos -->
+      <section class="fx-card">
+        <h2 class="section__header">
+          <i class="ri-profile-line"></i> Mis datos
+        </h2>
+        <div id="meBox" class="me-grid"></div>
+      </section>
+
+      <!-- Mis citas -->
+      <section class="fx-card">
+        <h2 class="section__header">
+          <i class="ri-calendar-check-line"></i> Mis citas
+        </h2>
+        
+        <!-- Mensaje si no hay citas -->
+        <div id="noCitasMsg" class="empty-state is-hidden">
+          <i class="ri-calendar-2-line"></i>
+          <p>Aún no tienes citas registradas</p>
+        </div>
+        
+        <!-- Tabla de citas -->
+        <div class="table-wrap">
+          <table class="c-table">
+            <thead>
+              <tr>
+                <th><i class="ri-time-line"></i> Fecha/Hora</th>
+                <th><i class="ri-service-line"></i> Servicio</th>
+                <th><i class="ri-file-text-line"></i> Asunto</th>
+                <th><i class="ri-flag-line"></i> Estado</th>
+                <th><i class="ri-eye-line"></i> Resultado</th>
+              </tr>
+            </thead>
+            <tbody id="apptsBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+     <!-- FOOTER -->
+    <footer class="c-footer" role="contentinfo">
+      <div class="c-footer__inner">
+        <div class="c-footer__grid">
+          <div>
+            <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
+            <p class="c-footer__p">
+              En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos
+              <strong>confiables y oportunos</strong>. Cuidamos cada muestra con
+              trazabilidad y buenas prácticas, porque tu salud es primero.
+            </p>
+            <p class="c-footer__p">
+              La información de este sitio es de carácter informativo y <strong>no sustituye</strong>
+              la consulta médica. Ante cualquier duda, acude con tu médico tratante.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Empresa</h4>
+            <p class="c-footer__p"><a href="#historia">Quiénes somos</a></p>
+            <p class="c-footer__p"><a href="inicio.html#politica">Política de calidad</a></p>
+            <p class="c-footer__p"><a href="#equipo">Nuestro equipo</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Soporte</h4>
+            <p class="c-footer__p"><a href="contacto.html#formCita">Contacto</a></p>
+            <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
+            <p class="c-footer__p"><a href="inicio.html#faq">Preguntas frecuentes</a></p>
+          </div>
+
+          <div>
+            <h4 class="c-footer__h4">Síguenos</h4>
+            <div class="c-footer__socials" aria-label="Redes sociales">
+              <a href="https://instagram.com/"
+                aria-label="Instagram"
+                title="Instagram"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-instagram-line" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.facebook.com/"
+                aria-label="Facebook"
+                title="Facebook"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-facebook-fill" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://x.com/"
+                aria-label="X (Twitter)"
+                title="X (Twitter)"
+                target="_blank" rel="noopener noreferrer">
+                <i class="ri-twitter-x-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-footer__bar">
+        <div class="c-footer__bar-inner">
+          <p>Copyright © 2025, Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+  <!-- JS -->
+  <script defer src="js/navbar.js"></script>
+  <script defer src="js/base.js"></script>
+  <script defer src="js/perfil.js"></script>
+</body>
+</html>

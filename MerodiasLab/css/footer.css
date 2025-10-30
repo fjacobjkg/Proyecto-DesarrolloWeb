@@ -1,4 +1,4 @@
-/* ======= FOOTER ======= */
+/* FOOTER*/
 
 /* Paleta/estética base */
 .c-footer {
@@ -9,8 +9,8 @@
   --ft-soft: #eaf2ff;
 
   /* ritmo vertical uniforme */
-  --rhythm: .75rem;         /* separación entre líneas */
-  --h-space: 1rem;          /* separación título → contenido */
+  --rhythm: .75rem;         
+  --h-space: 1rem;         
 
   background: var(--ft-soft);
   border-top: 1px solid rgba(15,23,42,.06);
@@ -44,12 +44,11 @@
   margin: 0;
 }
 
-/* ======= GRID PRINCIPAL ======= */
+/* GRID PRINCIPAL */
 .c-footer__grid {
   display: grid;
   grid-template-columns: 1.8fr 1.1fr 1.1fr auto;
   gap: clamp(2rem, 3.2vw, 3rem);
-  /* CRÍTICO: align-items baseline para alinear los títulos */
   align-items: baseline;
   padding-left: 0;
   padding-right: 0;
@@ -75,12 +74,11 @@
   padding-left: 0;
 }
 
-/* Columna 4 (Síguenos): pegada al borde derecho del contenedor */
 .c-footer__grid > div:nth-child(4) {
   justify-self: end;
 }
 
-/* ======= TITULOS ======= */
+/* TITULOS*/
 .c-footer__h3 {
   font-size: clamp(1.5rem, 1.2rem + .5vw, 1.75rem);
   font-weight: 700;
@@ -88,7 +86,6 @@
   margin: 0 0 var(--h-space) 0;
   padding: 0;
   line-height: 1.2;
-  /* Ajuste fino para alinear baseline */
   display: inline-block;
 }
 .c-footer__h3 span { color: var(--ft-secondary); }
@@ -100,13 +97,11 @@
   margin: 0 0 var(--h-space) 0;
   padding: 0;
   line-height: 1.2;
-  /* Ajuste fino para alinear baseline */
   display: inline-block;
-  /* Compensación para igualar altura visual con h3 */
   padding-top: .15rem;
 }
 
-/* ======= TEXTO GENERAL ======= */
+/*  TEXTO GENERAL */
 .c-footer__p {
   color: var(--ft-text);
   font-size: clamp(.98rem, .2vw + .95rem, 1.05rem);
@@ -117,7 +112,6 @@
   max-width: 65ch;
 }
 
-/* Los <p> dentro de columnas 2 y 3 no tienen margin-bottom */
 .c-footer__grid > div:nth-child(2) .c-footer__p,
 .c-footer__grid > div:nth-child(3) .c-footer__p {
   margin-bottom: 0;
@@ -135,7 +129,7 @@
   margin-bottom: 0;
 }
 
-/* ======= ENLACES ======= */
+/*  ENLACES  */
 /* Enlaces sueltos dentro de párrafos */
 .c-footer__p a {
   transition: color .2s, transform .2s;
@@ -168,7 +162,7 @@
   transform: translateX(2px);
 }
 
-/* ======= REDES SOCIALES ======= */
+/* REDES SOCIALES */
 .c-footer__socials {
   display: flex;
   gap: 1rem;
@@ -186,7 +180,7 @@
   opacity: .9;
 }
 
-/* ========== RESPONSIVO ========== */
+/*  RESPONSIVO */
 @media (max-width:1100px) {
   .c-footer__grid {
     grid-template-columns: 1fr 1fr;

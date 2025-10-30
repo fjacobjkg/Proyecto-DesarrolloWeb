@@ -5,25 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacto — Laboratorio Merodias S.A.</title>
 
-    <!-- Iconos + Fuentes -->
+  <!-- Iconos + Fuentes -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS  -->
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/contacto.css" />
   <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="components/login/login.css">
+  <link rel="stylesheet" href="components/login/login.css" />
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css"> 
+ 
 
-   <!-- JS-->        
-  <script src="js/navbar.js"></script>  
-  <script src="components/login/config.js" defer></script>   <!-- opcional p/ redirección -->
-  <script src="components/login/login.js"></script>
+  <!-- JS (defer para que el DOM esté listo) -->
+  <script src="js/navbar.js" defer></script>
+  <script src="components/login/login.js" defer></script>
+  <script src="js/base.js" defer></script>
+  <script src="js/contacto.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+
+
 </head>
 
 <body class="p-contact">
-    <!-- NAVBAR -->
+  <!-- NAVBAR -->
   <header class="c-navbar" role="banner">
     <nav class="c-navbar__inner" aria-label="Principal">
       <a class="c-navbar__brand" href="inicio.html" aria-label="Ir al inicio">
@@ -31,37 +39,40 @@
         <span class="brand-b">Lab <i class="ri-microscope-line" aria-hidden="true"></i></span>
       </a>
 
-      <button class="c-navbar__toggle" 
-              aria-expanded="false" 
+      <button class="c-navbar__toggle"
+              aria-expanded="false"
               aria-controls="navMenu"
-              aria-label="Abrir menú" 
+              aria-label="Abrir menú"
               data-toggle>
         <i class="ri-menu-line" aria-hidden="true"></i>
       </button>
 
-      <ul id="navMenu" 
-          class="c-navbar__links" 
-          data-open="false" 
-          data-menu>
+      <ul id="navMenu" class="c-navbar__links" data-open="false" data-menu>
         <li><a class="c-navbar__link" href="inicio.html">Inicio</a></li>
         <li><a class="c-navbar__link" href="servicios.html">Servicios</a></li>
-        <li><a class="c-navbar__link" href="nosotros.html" >Nosotros</a></li>
+        <li><a class="c-navbar__link" href="nosotros.html">Nosotros</a></li>
         <li><a class="c-navbar__link" href="contacto.html" aria-current="page">Contacto</a></li>
-            <!-- Botón para móvil -->
+
+        <!-- móvil -->
         <li class="c-navbar__item-mobile">
-          <button class="c-btn c-btn--full" style="--btn-bg:#2563eb">Ingresar</button>
+          <button class="c-btn c-btn--full" style="--btn-bg:#2563eb" data-action="login">Ingresar</button>
+          <a class="c-btn c-btn--full c-btn--ghost" href="perfil.html" style="margin-top:.5rem;display:none" data-action="profile">Mi cuenta</a>
+          <button class="c-btn c-btn--full c-btn--ghost" style="margin-top:.5rem;display:none" data-action="logout">Cerrar sesión</button>
         </li>
       </ul>
 
+      <!-- escritorio -->
       <div class="c-navbar__actions">
-         <button class="c-btn" style="--btn-bg:#2563eb">Ingresar</button>
+        <button class="c-btn c-btn--primary" style="--btn-bg:#2563eb" data-action="login">Ingresar</button>
+        <a href="perfil.html" class="c-btn c-btn--primary" style="margin-left:.5rem;display:none" data-action="profile">Mi cuenta</a>
+        <button class="c-btn c-btn--ghost" style="margin-left:.5rem;display:none" data-action="logout">Cerrar sesión</button>
       </div>
     </nav>
   </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-<main id="main-content">
-      <!-- HERO -->
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="main-content">
+    <!-- HERO -->
     <section id="contacto" class="p-contact__hero">
       <div class="p-contact__container">
         <div class="p-contact__content">
@@ -78,44 +89,32 @@
       </div>
     </section>
 
-      <!-- FORMULARIO · AGENDAR CITA -->
-    <section id="formCita"
-            class="section__container contact__form contact__form--blue"
-            aria-labelledby="cf-title">
-
+    <!-- FORMULARIO · AGENDAR CITA / CONTACTO -->
+    <section id="formCita" class="section__container contact__form contact__form--blue" aria-labelledby="cf-title">
       <div class="fx-card">
-          <!-- Banda izquierda -->
         <aside class="fx-aside">
           <h2 id="cf-title" class="fx-title">Agendar cita</h2>
-          <p class="fx-sub">
-            Complete el formulario y le contactaremos para coordinar día y hora.
-          </p>
-
-            <!-- Tres puntos -->
+          <p class="fx-sub">Complete el formulario y le contactaremos para coordinar día y hora.</p>
           <ul class="fx-points fx-points--center">
-            <li>Respuesta en <strong> 24&nbsp;h hábiles</strong></li>
+            <li>Respuesta en <strong>24&nbsp;h hábiles</strong></li>
             <li>Datos tratados con <strong>confidencialidad</strong></li>
             <li>Comunicación según <strong>su preferencia</strong></li>
           </ul>
-
-            <!-- Nota formal al pie -->
-          <p class="fx-note">
-            Le responderemos a la brevedad para confirmar los detalles de su cita.
-          </p>
+          <p class="fx-note">Si no ha iniciado sesión, su mensaje llegará a nuestro buzón de contacto.</p>
         </aside>
 
-          <!-- Columna derecha (formulario) -->
         <article class="fx-formWrap">
           <form id="cfForm" class="fx-form" novalidate>
             <div class="fx-grid">
+              <!-- Contacto -->
               <div class="fx-field">
                 <label class="fx-label" for="cf-name">Nombre completo</label>
-                <input class="fx-input" id="cf-name" name="name" type="text" placeholder="Nombre y apellidos" required autocomplete="name">
+                <input class="fx-input" id="cf-name" name="name" type="text" placeholder="Nombre y apellidos" autocomplete="name">
               </div>
 
               <div class="fx-field">
                 <label class="fx-label" for="cf-email">Correo electrónico</label>
-                <input class="fx-input" id="cf-email" name="email" type="email" placeholder="nombre@dominio.com" required autocomplete="email">
+                <input class="fx-input" id="cf-email" name="email" type="email" placeholder="nombre@dominio.com" autocomplete="email">
               </div>
 
               <div class="fx-field">
@@ -125,141 +124,102 @@
 
               <div class="fx-field">
                 <label class="fx-label" for="cf-subject">Asunto</label>
-                <input class="fx-input" id="cf-subject" name="subject" type="text" placeholder="Motivo de la cita">
+                <input class="fx-input" id="cf-subject" name="subject" type="text" placeholder="Motivo de la cita o consulta">
+              </div>
+
+              <!-- Solo para cita: servicio + fecha -->
+              <div class="fx-field">
+                <label class="fx-label" for="cf-service">Servicio</label>
+                <select class="fx-input" id="cf-service" name="service_id">
+                  <option value="">Seleccionar</option>
+                </select>
+              </div>
+
+              <div class="fx-field">
+                <label class="fx-label" for="cf-dt">Fecha y hora preferida</label>
+                <input class="fx-input" id="cf-dt" name="preferred_dt" type="text" />
               </div>
 
               <div class="fx-field fx-field--full">
                 <label class="fx-label" for="cf-message">Mensaje</label>
-                <textarea class="fx-input fx-textarea" id="cf-message" name="message" rows="5" placeholder="Escriba su mensaje aquí…" required></textarea>
+                <textarea class="fx-input fx-textarea" id="cf-message" name="message" rows="5" placeholder="Escriba su mensaje aquí…"></textarea>
               </div>
             </div>
 
             <div class="fx-actions">
               <button type="submit" class="fx-btn fx-btn--impact">Enviar</button>
+              <p id="cfFeedback" class="fx-note" aria-live="polite" style="margin-left:1rem;"></p>
             </div>
           </form>
         </article>
       </div>
     </section>
 
-
-
         <!-- VISÍTANOS + MAPA -->
-    <section id="mapa" class="section__container contact__visit contact__visit--blue" aria-labelledby="contactVisitTitulo">
-      <div class="visit__card">
-        <!-- Columna izquierda -->
-        <div class="visit__col">
-          <h2 id="contactVisitTitulo" class="section__header">Visítanos</h2>
+        <section id="mapa" class="section__container contact__visit contact__visit--blue" aria-labelledby="contactVisitTitulo">
+          <div class="visit__card">
+            <div class="visit__col">
+              <h2 id="contactVisitTitulo" class="section__header">Visítanos</h2>
+              <ul class="visit__list" role="list">
+                <li><i class="ri-map-pin-line" aria-hidden="true"></i><div><strong>10A Calle 11-56, Cdad. de Guatemala, Zona 1</strong></div></li>
+                <li><i class="ri-time-line" aria-hidden="true"></i><div><div><strong>Lun–Vie:</strong> 07:00–18:00</div><div><strong>Sábados:</strong> 07:00–12:00</div></div></li>
+                <li><i class="ri-phone-line" aria-hidden="true"></i><div><a href="tel:+50250384709"><strong>5038–4709</strong></a><div class="visit__hint">Llamadas y WhatsApp</div></div></li>
+                <li><i class="ri-mail-line" aria-hidden="true"></i><div><a href="mailto:contacto@merodiaslab.com"><strong>contacto@merodiaslab.com</strong></a></div></li>
+              </ul>
+            </div>
 
-          <ul class="visit__list" role="list">
-            <li>
-              <i class="ri-map-pin-line" aria-hidden="true"></i>
-              <div><strong>10A Calle 11-56, Cdad. de Guatemala, Zona 1</strong></div>
-            </li>
-            <li>
-              <i class="ri-time-line" aria-hidden="true"></i>
-              <div>
-                <div><strong>Lun–Vie:</strong> 07:00–18:00</div>
-                <div><strong>Sábados:</strong> 07:00–12:00</div>
+            <!-- Columna derecha: mapa -->
+              <div class="visit__mapCol">
+                <div class="visit__map" aria-label="Mapa de ubicación">
+                  <iframe
+                    title="Mapa: Calzada Ejemplo 123, Zona 10"
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1022.4649065894549!2d-90.50789526323065!3d14.638137422699947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCalzada%20Ejemplo%20123%2C%20Zona%2010%2C%20Ciudad%20de%20Guatemala!5e0!3m2!1ses!2sgt!4v1760133695830!5m2!1ses!2sgt"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
+                <a class="visit__mapHint"
+                  href="https://www.google.com/maps?q=Calzada+Ejemplo+123,+Zona+10,+Ciudad+de+Guatemala"
+                  target="_blank" rel="noopener"><i class="ri-map-pin-2-fill"></i> Abrir el mapa</a>
               </div>
-            </li>
-            <li>
-              <i class="ri-phone-line" aria-hidden="true"></i>
-              <div>
-                <a href="tel:+50200000000"><strong>5038–4709</strong></a>
-                <div class="visit__hint">Llamadas y WhatsApp</div>
-              </div>
-            </li>
-            <li>
-              <i class="ri-mail-line" aria-hidden="true"></i>
-              <div><a href="mailto:contacto@tuempresa.com"><strong>contacto@merodiaslab.com</strong></a></div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Columna derecha: mapa -->
-        <div class="visit__mapCol">
-          <div class="visit__map" aria-label="Mapa de ubicación">
-            <iframe
-              title="Mapa: Calzada Ejemplo 123, Zona 10"
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1022.4649065894549!2d-90.50789526323065!3d14.638137422699947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCalzada%20Ejemplo%20123%2C%20Zona%2010%2C%20Ciudad%20de%20Guatemala!5e0!3m2!1ses!2sgt!4v1760133695830!5m2!1ses!2sgt"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-          </div>
-          <a class="visit__mapHint"
-            href="https://www.google.com/maps?q=Calzada+Ejemplo+123,+Zona+10,+Ciudad+de+Guatemala"
-            target="_blank" rel="noopener"><i class="ri-map-pin-2-fill"></i> Abrir el mapa</a>
-        </div>
-      </div>
-    </section>
-
+            </div>
+        </section>
   </main>
 
-  
-      <!-- FOOTER -->
-    <footer class="c-footer" role="contentinfo">
-      <div class="c-footer__inner">
-        <div class="c-footer__grid">
-          <div>
-            <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
-            <p class="c-footer__p">
-              En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos
-              <strong>confiables y oportunos</strong>. Cuidamos cada muestra con
-              trazabilidad y buenas prácticas, porque tu salud es primero.
-            </p>
-            <p class="c-footer__p">
-              La información de este sitio es de carácter informativo y <strong>no sustituye</strong>
-              la consulta médica. Ante cualquier duda, acude con tu médico tratante.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="c-footer__h4">Empresa</h4>
-            <p class="c-footer__p"><a href="nosotros.html#historia">Quiénes somos</a></p>
-            <p class="c-footer__p"><a href="inicio.html#politica">Política de calidad</a></p>
-            <p class="c-footer__p"><a href="nosotros.html#equipo">Nuestro equipo</a></p>
-          </div>
-
-          <div>
-            <h4 class="c-footer__h4">Soporte</h4>
-            <p class="c-footer__p"><a href="#formCita">Contacto</a></p>
-            <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
-            <p class="c-footer__p"><a href="inicio.html#faq">Preguntas frecuentes</a></p>
-          </div>
-
-          <div>
-            <h4 class="c-footer__h4">Síguenos</h4>
-            <div class="c-footer__socials" aria-label="Redes sociales">
-              <a href="https://instagram.com/"
-                aria-label="Instagram"
-                title="Instagram"
-                target="_blank" rel="noopener noreferrer">
-                <i class="ri-instagram-line" aria-hidden="true"></i>
-              </a>
-
-              <a href="https://www.facebook.com/"
-                aria-label="Facebook"
-                title="Facebook"
-                target="_blank" rel="noopener noreferrer">
-                <i class="ri-facebook-fill" aria-hidden="true"></i>
-              </a>
-
-              <a href="https://x.com/"
-                aria-label="X (Twitter)"
-                title="X (Twitter)"
-                target="_blank" rel="noopener noreferrer">
-                <i class="ri-twitter-x-line" aria-hidden="true"></i>
-              </a>
-            </div>
+  <!-- FOOTER -->
+  <footer class="c-footer" role="contentinfo">
+    <div class="c-footer__inner">
+      <div class="c-footer__grid">
+        <div>
+          <h3 class="c-footer__h3">Merodias<span> Lab</span> <i class="ri-microscope-line"></i></h3>
+          <p class="c-footer__p">En Laboratorio Merodias S.A. trabajamos para entregarte diagnósticos <strong>confiables y oportunos</strong>. Cuidamos cada muestra con trazabilidad y buenas prácticas, porque tu salud es primero.</p>
+          <p class="c-footer__p">La información de este sitio es de carácter informativo y <strong>no sustituye</strong> la consulta médica. Ante cualquier duda, acude con tu médico tratante.</p>
+        </div>
+        <div>
+          <h4 class="c-footer__h4">Empresa</h4>
+          <p class="c-footer__p"><a href="nosotros.html#historia">Quiénes somos</a></p>
+          <p class="c-footer__p"><a href="inicio.html#politica">Política de calidad</a></p>
+          <p class="c-footer__p"><a href="nosotros.html#equipo">Nuestro equipo</a></p>
+        </div>
+        <div>
+          <h4 class="c-footer__h4">Soporte</h4>
+          <p class="c-footer__p"><a href="#formCita">Contacto</a></p>
+          <p class="c-footer__p"><a href="#resultados">Portal de resultados</a></p>
+          <p class="c-footer__p"><a href="inicio.html#faq">Preguntas frecuentes</a></p>
+        </div>
+        <div>
+          <h4 class="c-footer__h4">Síguenos</h4>
+          <div class="c-footer__socials" aria-label="Redes sociales">
+            <a href="https://instagram.com/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="ri-instagram-line" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="ri-facebook-fill" aria-hidden="true"></i></a>
+            <a href="https://x.com/" aria-label="X (Twitter)" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="ri-twitter-x-line" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
-
-      <div class="c-footer__bar">
-        <div class="c-footer__bar-inner">
-          <p>Copyright © 2025, Todos los derechos reservados.</p>
-        </div>
+    </div>
+    <div class="c-footer__bar">
+      <div class="c-footer__bar-inner">
+        <p>Copyright © 2025, Todos los derechos reservados.</p>
       </div>
-    </footer>
-
+    </div>
+  </footer>
 </body>
 </html>

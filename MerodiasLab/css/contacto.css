@@ -1,10 +1,10 @@
-/* ===== HERO CONTACTO (FIX) ===== */
+/* HERO CONTACTO */
 .p-contact__hero {
   --hero-h: clamp(540px, 95vh, 860px);
   --header-offset: 72px;
 
   position: relative;
-  isolation: isolate;                 /* asegura stacking context */
+  isolation: isolate;               
   display: grid;
   place-items: center;
 
@@ -25,7 +25,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: center 10% / cover no-repeat url("/MerodiasLab/assets/contacto.jpg");
+  background: center 10% / cover no-repeat url("/assets/contacto.jpg");
   transform: translateZ(0);           
 }
 
@@ -101,7 +101,7 @@
   backdrop-filter: blur(2px);
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 900px) {
   .p-contact__hero {
     min-height: auto;                 /* que crezca por contenido */
@@ -325,7 +325,6 @@
 
 /*  7) RESPONSIVE */
 
-/* Form: 2→1 columnas y botones full-width */
 @media (max-width: 720px){
   .fx-card{ grid-template-columns: 1fr; }
   .fx-grid{ grid-template-columns: 1fr; }
@@ -333,7 +332,6 @@
   .fx-btn{ width: 100%; }
 }
 
-/* Visítanos: 2→1 columnas y altura fluida */
 @media (max-width: 968px){
   .contact__visit--blue .visit__card{
     grid-template-columns: 1fr; gap: 2.25rem; height: auto;

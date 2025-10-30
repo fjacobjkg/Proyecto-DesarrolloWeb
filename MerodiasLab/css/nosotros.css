@@ -1,6 +1,6 @@
-/* ===== 1) HERO NOSOTROS ===== */
+/* HERO NOSOTROS */
 .p-nosotros__hero {
-  --hero-h: clamp(700px, 100vh, 1000px); /* Consistente con Inicio/Contacto */
+  --hero-h: clamp(700px, 100vh, 1000px); 
   --header-offset: 72px;
 
   position: relative;
@@ -11,7 +11,7 @@
   padding-top: var(--header-offset);
   margin-block-end: var(--section-gap);
 
-  background-color: #125aac; /* respaldo bajo la imagen */
+  background-color: #125aac; 
 }
 
 /* Fondo con imagen + overlay */
@@ -20,7 +20,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: center 10% / cover no-repeat url("/MerodiasLab/assets/nosotros.jpg");
+  background: center 10% / cover no-repeat url("/assets/nosotros.jpg");
 }
 .p-nosotros__hero::after {
   content: "";
@@ -57,13 +57,13 @@
 .p-nosotros__title {
   font-size: clamp(2.6rem, 4vw + .6rem, 4rem);
   font-weight: 800;
-  line-height: 1.08;           /* más respiración */
-  letter-spacing: -.015em;     /* tracking menos agresivo */
+  line-height: 1.08;          
+  letter-spacing: -.015em;     
   margin-bottom: .8rem;
   color: #fff;
   text-shadow: 0 2px 6px rgba(0,0,0,.18);
-  text-wrap: balance;          /* balancea líneas largas */
-  max-width: 20ch;             /* evita títulos exageradamente anchos */
+  text-wrap: balance;          
+  max-width: 20ch;             
 }
 .p-nosotros__lead {
   color: rgba(255,255,255,.92);
@@ -75,7 +75,7 @@
 }
 .p-nosotros__lead strong { color: #fff; }
 
-/* CTA (reutiliza .c-btn base) */
+/* CTA */
 .p-nosotros__cta {
   display: flex;
   gap: .9rem;
@@ -94,7 +94,7 @@
 
 /* HERO: Responsive */
 @media (max-width: 900px){
-  .p-nosotros__hero { min-height: auto; }         /* crece por contenido */
+  .p-nosotros__hero { min-height: auto; }         
   .p-nosotros__hero::before { background-position: center; }
   .p-nosotros__container {
     padding: clamp(1.5rem, 4vw, 3rem) 1rem clamp(1.5rem, 5vw, 4rem);
@@ -265,7 +265,7 @@
 }
 .mvv .mvv__icon i{ font-size: 2.2rem; color:#fff; line-height:1; }
 .mvv__icon:has(img) i,
-.mvv__icon--img i{ display: none; } /* oculta <i> si hay imagen */
+.mvv__icon--img i{ display: none; } 
 
 /* Tipografía tarjeta */
 .mvv__title{

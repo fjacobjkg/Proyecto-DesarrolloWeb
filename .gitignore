@@ -1,0 +1,60 @@
+
+# Archivos del sistema 
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+*.swp
+
+#  Editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Dependencias / builds / cobertura 
+node_modules/
+bower_components/
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+
+# Cachés y temporales 
+.cache/
+.tmp/
+.temp/
+.npm/
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Logs 
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+#  Entornos 
+.env
+.env.*
+*.env
+*.local
+*.secret
+*.secrets
+*.key
+*.pem
+*.crt
+*.pfx
+*.p12
+*.keystore
+.envrc
+.direnv/
+credential*
+credentials*
